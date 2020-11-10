@@ -1,0 +1,25 @@
+extends main
+block variables
+    - var pageTitle = '11111'
+    - var isPug = true
+block content
+  .menu
+    a(href='#').menu__item.menu__item_current О нас
+    a(href='#').menu__item.menu__item_down Услуги
+    a(href='#').menu__item Вакансии
+    a(href='#').menu__item Новости
+    a(href='#').menu__item.menu__item_down Соглашения
+
+  h2 Pug - node template engine
+    #container.col
+      if youAreUsingPug
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Pug is a terse and simple templating language with a
+        strong focus on performance and powerful features.
+      button.button.button_notfill.button_login ВОЙТИ
+        
+        
+        

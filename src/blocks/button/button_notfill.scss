@@ -1,0 +1,20 @@
+.button_notfill {
+    position: relative;
+    width: 99px;
+    background: white;
+    border-image-slice: 1;
+    border-radius: 22px;
+}
+
+.button_notfill::before {
+    position: absolute;
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 26px;
+    z-index: -1;
+  }
