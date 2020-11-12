@@ -3,9 +3,13 @@
 @import "footer__container.scss";
 @import "footer__disc.scss";
 @import "footer__logo.scss";
+@import "footer__bold-text.scss";
+@import "footer__link-text.scss";
+@import "footer__column.scss";
+@import "footer__email.scss";
 
 .footer {
     display: flex;
     background-color: white;
-   
+    box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
 }

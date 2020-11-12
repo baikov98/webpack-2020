@@ -1,5 +1,8 @@
 .footer__info {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 300px 200px 200px 200px 260px;
     padding: 100px 0;
+    max-width: 1160px;
+    height: 372px;
+    box-sizing: border-box;
 }
