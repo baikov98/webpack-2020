@@ -5,6 +5,9 @@ html(lang="en")
   head
     title= pageTitle
   body
-    include header.pug
+    img(src="gray-logo.svg").gray-logo.header__logo
+    include fsd/header/header.pug
+    include fsd/header/header-logged.pug
+    include fsd/footer/footer.pug
     block content
     block scripts

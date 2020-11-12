@@ -1,0 +1,11 @@
+@import "../blocks/text-bold-12/text-bold-12.scss";
+@import "footer__info.scss";
+@import "footer__container.scss";
+@import "footer__disc.scss";
+@import "footer__logo.scss";
+
+.footer {
+    display: flex;
+    background-color: white;
+   
+}

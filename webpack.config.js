@@ -88,6 +88,8 @@ const plugins = () => {
         new CopyWebpackPlugin(
             [
                 { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
+                { from: path.resolve(__dirname, 'src/fsd/blocks/main-logo/main-logo.svg'), to: path.resolve(__dirname, 'dist') },
+                { from: path.resolve(__dirname, 'src/fsd/blocks/gray-logo/gray-logo.svg'), to: path.resolve(__dirname, 'dist') }
             ]
         ),
         new MiniCssExtractPlugin({
@@ -121,7 +123,8 @@ module.exports = {
     },
     optimization: optimization(),
     devServer: {
-        port: 4200,
+        host: '192.168.0.95',
+        port: 8080,
         hot: isDev
     },
     devtool: isDev ? 'source-map' : '',
