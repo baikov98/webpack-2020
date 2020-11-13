@@ -1,11 +1,14 @@
 $border: 1px solid #ccc;
 @import "~normalize.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
 @import "fonts/material-icons.css";
 @import "roboto.css";
 
 $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/';
 @import '~material-design-icons-iconfont/src/material-design-icons';
 $arrow: material-icons-content('arrow-forward');
+
+
 @font-face {
 	font-family: 'Montserrat-Regular';
 	src: url('fonts/Montserrat-Regular.eot');

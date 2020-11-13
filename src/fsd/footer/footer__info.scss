@@ -1,6 +1,6 @@
 .footer__info {
     display: grid;
-    grid-template-columns: 300px 200px 200px 200px 260px;
+    grid-template-columns: 300px minmax(170px, 200px) minmax(140px, 200px) minmax(180px, 200px) 260px; //300px 200px 200px 200px 260px
     padding: 100px 0;
     max-width: 1160px;
     height: 372px;
