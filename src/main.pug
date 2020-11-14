@@ -3,11 +3,14 @@ block variables
 doctype html
 html(lang="en")
   head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title= pageTitle
   body
     img(src="gray-logo.svg").gray-logo.header__logo
     include fsd/header/header.pug
     include fsd/header/header-logged.pug
     include fsd/footer/footer.pug
+    include fsd/copyright/copyright.pug
     block content
     block scripts

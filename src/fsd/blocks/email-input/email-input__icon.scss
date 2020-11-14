@@ -1,0 +1,13 @@
+.email-input__icon {
+    position: absolute;
+    top: 10px;
+    left: 225px;
+    &:after {
+        font-family: 'Material Icons';
+        font-size: 24px;
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); /* Градиент для текста */
+        -webkit-background-clip: text; /* Обрезаем фон по тексту */
+        -webkit-text-fill-color: transparent; /* Прозрачный текст */
+        content: 'arrow_forward';
+      }
+}

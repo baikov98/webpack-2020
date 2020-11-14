@@ -1,10 +1,10 @@
 @import "vars.scss";
 @import "../fsd/header/header.scss";
 @import "../fsd/footer/footer.scss";
-
+@import "../fsd/copyright/copyright.scss";
 body{
+    max-width: 1440px;
     background-color: #E5E5E5;
-    padding: 10px;
 }
 
 
