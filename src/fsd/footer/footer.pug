@@ -1,37 +1,19 @@
+mixin footer-items(title, ...items)
+    .footer__column
+        .text-bold-12.footer__bold-text= title
+        each item in items
+            .footer__link-text
+                a.text-head-foot(href="#")= item
+
 .footer
     .footer__container
         .footer__info
             .footer__column
                 img(src="main-logo.svg").main-logo.footer__logo
                 .footer__disc Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-            .footer__column
-                .text-bold-12.footer__bold-text навигация
-                .footer__link-text
-                    a(href="#").text-head-foot О нас
-                .footer__link-text
-                    a(href="#").text-head-foot Новости
-                .footer__link-text
-                    a(href="#").text-head-foot Служба поддержки
-                .footer__link-text
-                    a(href="#").text-head-foot Услуги
-            .footer__column
-                .text-bold-12.footer__bold-text о нас
-                .footer__link-text
-                    a(href="#").text-head-foot О сервисе
-                .footer__link-text
-                    a(href="#").text-head-foot Наша команда
-                .footer__link-text
-                    a(href="#").text-head-foot Вакансии
-                .footer__link-text
-                    a(href="#").text-head-foot Инвесторы
-            .footer__column
-                .text-bold-12.footer__bold-text служба поддержки
-                .footer__link-text
-                    a(href="#").text-head-foot Соглашения
-                .footer__link-text
-                    a(href="#").text-head-foot Сообщества
-                .footer__link-text
-                    a(href="#").text-head-foot Связь с нами
+            +footer-items('навигация', 'О нас', 'Новости', 'Служба поддержки', 'Услуги')
+            +footer-items('о нас', 'О сервисе', 'Наша команда', 'Вакансии', 'Инвесторы')
+            +footer-items('служба поддержки', 'Соглашения', 'Сообщества', 'Связь с нами')
             .footer__column
                 .text-bold-12.footer__bold-text подписка
                 .footer__disc Получайте специальные предложения и новости сервиса

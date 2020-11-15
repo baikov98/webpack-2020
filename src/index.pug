@@ -1,8 +1,12 @@
 extends main
 block variables
-    - var pageTitle = '11111'
-    - var isPug = true
+    - var pageTitle = 'Headers & Footers'
 block content
+    img(src="gray-logo.svg").gray-logo.header__logo
+    include fsd/header/header.pug
+    include fsd/header/header-logged.pug
+    include fsd/footer/footer.pug
+    include fsd/copyright/copyright.pug
   
 
         

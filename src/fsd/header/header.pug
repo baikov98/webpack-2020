@@ -1,14 +1,13 @@
+mixin menu-items
+    each value, index in {'О нас': 'menu__item_current', 'Услуги':'menu__item_arrow-down', 'Вакансии':'', 'Новости':'', 'Соглашения': 'menu__item_arrow-down'}
+        a.text-head-foot.menu__item(href='#' class=value)= index
 
 .header
     .header__container
         img(src="main-logo.svg").main-logo
         .header__nav
             .menu
-                a(href='#').menu__item.menu__item_current.text-head-foot О нас
-                a(href='#').menu__item.menu__item_arrow-down.text-head-foot Услуги
-                a(href='#').menu__item.text-head-foot Вакансии
-                a(href='#').menu__item.text-head-foot Новости
-                a(href='#').menu__item.menu__item_arrow-down.text-head-foot Соглашения
+                +menu-items
             .login
                 .header__buttons
                     button.button.button_notfill.login__button-in ВОЙТИ
