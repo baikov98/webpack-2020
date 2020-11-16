@@ -2,12 +2,14 @@ $border: 1px solid #ccc;
 @import "~normalize.css";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "fonts/material-icons.css";
-@import "roboto.css";
+@import '~item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
 
 $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/';
 @import '~material-design-icons-iconfont/src/material-design-icons';
 $arrow: material-icons-content('arrow-forward');
-
+$grad-color: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$font-mont: 'Montserrat-Regular';
+$font-mont-bold: 'Montserrat-Bold';
 
 @font-face {
 	font-family: 'Montserrat-Regular';

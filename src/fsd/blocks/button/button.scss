@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    font-family: Montserrat-Bold, sans-serif;
+    font-family: $font-mont-bold, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -12,7 +12,7 @@
     color:white;
     border: 0;
     border-radius: 22px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background: $grad-color;
     height: 44px;
     width: 320px;
     &:after {

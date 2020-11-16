@@ -1,0 +1,28 @@
+@import 'form-elem__container.scss';
+@import '../blocks/text-field/text-field.scss';
+
+.form-elem {
+
+}
+
+.iqdropdown {
+    background-color: white;
+    width: 266px;
+    height: 44px;
+}
+.iqdropdown-menu {
+    //height: 163px;
+}
+
+.iqdropdown .iqdropdown-menu-option {
+    height: 40px;
+}
+.iqdropdown .iqdropdown-item-controls {
+    height: 30px;
+    width: 92px;
+}
+.iqdropdown .iqdropdown-item-controls button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
