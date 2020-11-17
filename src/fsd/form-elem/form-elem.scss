@@ -1,10 +1,7 @@
 @import 'form-elem__container.scss';
 @import '../blocks/text-field/text-field.scss';
 
-.form-elem {
-
-}
-
+/* 
 .iqdropdown {
     background-color: white;
     width: 266px;
@@ -26,3 +23,146 @@
     height: 30px;
     width: 30px;
 }
+.iqdropdown .iqdropdown-item-controls button.button-decrement {
+    height: 30px;
+    width: 30px;
+}
+.iq_icons {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.iqdropdown .iqdropdown-item-controls .counter {
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    width: 32px;
+    height: 30px;
+}
+.iqdropdown .icon-decrement::after{
+    background-color: white;
+    content: '-';
+} */
+
+.dropdown__box {
+    width: 266px;
+    height: 44px;
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 4px 4px 0 0;
+}
+
+.drop__menu {
+    width: 266px;
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: -1px;
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    border-radius: 0 0 4px 4px;
+    box-sizing: border-box;
+}
+
+.visible {
+    display: block;
+}
+
+.dropdown__box_active {
+    border: 1px solid rgba(31, 32, 65, 0.5);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    
+}
+.item__text {
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #1F2041;
+    padding-left: 15px;
+}
+
+.item__calc {
+    padding-right: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item__calc-dec {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 22px;
+    background-color: white;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(31, 32, 65, 0.5);
+    &:focus{
+        outline: none;
+    }
+    &:active {
+        border: 1px solid rgba(31, 32, 65, 0.75);
+    }
+}
+
+
+.item__value {
+    display: inline-block;
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #1F2041;
+    padding: 0 10px;
+}
+
+
+.item__calc-inc {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 22px;
+    background-color: white;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(31, 32, 65, 0.5);
+    &:focus{
+        outline: none;
+    }
+    &:active {
+        border: 1px solid rgba(31, 32, 65, 0.75);
+    }
+}
+

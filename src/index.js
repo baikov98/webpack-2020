@@ -15,7 +15,6 @@ import './index.pug'
 
 const post = new Post('webpackposttitle', WebpackLogo);
 
-import './slick.min.js'
 import '../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js';
 import './plug.js';
 
