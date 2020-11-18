@@ -50,6 +50,15 @@
 } */
 
 .dropdown__box {
+    display: flex;
+    align-items: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.75);
+
     width: 266px;
     height: 44px;
     position: relative;
@@ -63,7 +72,7 @@
     width: 266px;
     display: none;
     position: absolute;
-    top: 44px;
+    top: 42px;
     left: -1px;
     background: #FFFFFF;
     border: 1px solid rgba(31, 32, 65, 0.5);
@@ -112,7 +121,7 @@
     box-sizing: border-box;
     border-radius: 22px;
     background-color: white;
-
+    cursor: pointer;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -125,6 +134,9 @@
     }
     &:active {
         border: 1px solid rgba(31, 32, 65, 0.75);
+    }
+    &:hover {
+        border: 1px solid rgba(31, 32, 65, 0.50);
     }
 }
 
@@ -150,7 +162,7 @@
     box-sizing: border-box;
     border-radius: 22px;
     background-color: white;
-    
+    cursor: pointer;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -164,5 +176,111 @@
     &:active {
         border: 1px solid rgba(31, 32, 65, 0.75);
     }
+    &:hover {
+        border: 1px solid rgba(31, 32, 65, 0.5);
+    }
 }
+
+$color-gray: #282828;
+$color-white: #fff;
+$font-size-md: 20px;
+$font-size-lg: 36px;
+$font-size-xl: 48px;
+
+body{
+    background-color: $color-gray;
+    color: $color-white;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size-xl;
+}
+
+h2 {
+    margin: 50px 0 0;
+    padding: 0;
+    font-size: $font-size-md;
+    span {
+        font-size: $font-size-lg;
+    }
+}
+
+.section-outer {
+
+}
+.section-inner {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 0 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-group {
+    $parent: &;
+    & + & {
+        margin-top: 24px;
+    }
+    &--row{
+        display: flex;
+        #{$parent}__title{
+            margin-right: 12px;
+            margin-top: 18px;
+        }
+        & + & {
+            margin-top: 12px;
+        }
+    }
+
+    &__title{
+        font-size: $font-size-md;
+    }
+    &__control{
+        margin-top: 8px;
+    }
+}
+
+.control {
+    display: flex;
+    &--col{
+        flex-direction: column;
+    }
+    &__input,
+    &__button{
+        margin: 0;
+        background: none;
+        color: $color-white;
+    };
+
+    &__input{
+        display: block;
+        width: 100%;
+        font-size: $font-size-lg;
+        padding: 0;
+        border-width: 0 0 1px;
+        border-style: solid;
+        border-bottom-color: $color-white;
+        
+    };
+    &__button{
+        cursor: pointer;
+        padding: 8px 20px;
+        font-size: $font-size-md;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: .2s;
+        &:hover,
+        &--active {
+            border-color: $color-white;
+        }
+        & + & {
+            margin-left: 12px;
+        }
+    }
+}
+
 

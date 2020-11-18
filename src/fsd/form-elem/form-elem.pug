@@ -1,12 +1,13 @@
-//.form-elem
-//    .form-elem__container
-//        .text-field-box
-//            input(type="text" placeholder="Email" maxlength="100").text-field
+//-.form-elem
+//-    .form-elem__container
+//-        .text-field-box
+//-            input(type="text" placeholder="Email" maxlength="100").text-field
 
 
 .jiv 23123
 
 .dropdown__box
+    //-тут тест бокса
     .drop__menu
         .item 
             .item__text спальни
@@ -26,5 +27,33 @@
                 button.item__calc-dec -
                 .item__value 0
                 button.item__calc-inc +
+
+section.section-outer
+    .section-inner 
+        h1 Калькулятор
+        .form-group
+            .form-group__title Длина рулона, м (20м - default)
+            .form-group__control.control
+                input(type="text" value="20").control__input#total-length
+        .form-group
+            .form-group__title Метод подсчета
+            .form-group__control.control
+                button(data-type="length").control__button.control__button--active по длине
+                button(data-type="paper").control__button по листочкам
+        .form-group.hidden#paper-length-block
+            .form-group__title Длина листочка, см (14см - default)
+            .form-group__control.control
+                input(type="text" value="14").control__input#paper-length
+        .form-group
+            .form-group__title Сколько человек дома
+            .form-group__control.control
+                input(type="text" value="1").control__input#users-count
+        .form-group
+            .form-group__title Использовано в день
+            .form-group__control.control.control--col#users-list
+                .form-group.form-group--row
+
+        h2 Хватит на <span id="result">10</span> дней
+                
 
 
