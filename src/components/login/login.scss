@@ -1,0 +1,18 @@
+@import '@/theme/variables.scss';
+.login {
+    display: flex;
+    align-items: center;
+
+    &__button-reg {
+        height: 34px;
+        width: 196px;
+        &:after {
+            display: none;
+          }
+    }
+
+    &__button-in {
+        height: 34px;
+        width: 87px;
+    }
+}

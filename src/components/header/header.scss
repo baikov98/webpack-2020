@@ -1,0 +1,40 @@
+
+.header {
+    position: relative;
+    z-index: -2;
+    background-color: white;
+    height: 70px;
+    margin-bottom: 40px;
+
+    &__buttons {
+        padding: 0 10px;
+        &:last-child {
+            padding-right: 0px;
+        }
+    }
+
+    &__container {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1160px;
+        height: 70px;
+    }
+
+    &__logo {
+        margin-bottom: 58px;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__stick {
+        width: 1px;
+        height: 30px;
+        background: rgba(31, 32, 65, 0.1);
+        margin: 0 20px 0 10px;
+    }
+}

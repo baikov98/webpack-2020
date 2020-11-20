@@ -1,0 +1,1 @@
+import './gray-logo.scss'

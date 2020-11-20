@@ -1,0 +1,1 @@
+import './text-bold-12.scss'

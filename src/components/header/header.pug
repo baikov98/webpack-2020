@@ -1,0 +1,15 @@
+mixin menu-items
+    each value, index in {'О нас': 'menu__item_current', 'Услуги':'menu__item_arrow-down', 'Вакансии':'', 'Новости':'', 'Соглашения': 'menu__item_arrow-down'}
+        a.text-head-foot.menu__item(href='#' class=value)= index
+
+.header
+    .header__container
+        include ../main-logo/main-logo.pug
+        .header__nav
+            .menu
+                +menu-items
+            .login
+                .header__buttons
+                    button.button.button_notfill.login__button-in ВОЙТИ
+                .header__buttons
+                    button.button.login__button-reg ЗАРЕГИСТРИРОВАТЬСЯ
