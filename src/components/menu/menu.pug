@@ -1,0 +1,6 @@
+
+
+mixin menu-items(options)
+    .menu
+        for item in options
+            a.text-head-foot.menu__item(href= `${item.href}` class=item.class)= item.name
