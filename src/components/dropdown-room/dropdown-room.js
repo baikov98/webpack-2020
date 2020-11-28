@@ -2,8 +2,6 @@ import './dropdown-room.scss'
 // нужны элементы управления плагином из пага -
 
 $(document).ready(() => {
-    //var preset = $('.dropdown__box').data('preset') === 'guest';
-
     function filltext(ctx) {
         
         if ($(ctx).parents(".dropdown__box").data('preset') === 'guest') {
@@ -17,7 +15,6 @@ $(document).ready(() => {
             if (num >= 2 && num < 5) {numtext = 'гостя'};
             inner = num + ' ' + numtext;
             if (num === 0) {
-                console.log(18)
                 inner = 'Сколько гостей';
                 $(ctx).parents('.drop__menu').find('.dropdown__clear').addClass('dropdown__clear_unactive')
             } else {$(ctx).parents('.drop__menu').find('.dropdown__clear').removeClass('dropdown__clear_unactive')}
@@ -92,8 +89,6 @@ $(document).ready(() => {
       filltext(this)
     });
     checkval();
-    console.log($('.dropdown__box').data('preset') === 'guest');
-
     //нас
     $(".dropdown__box[data-preset='guest']").find('.drop__text-box').addClass('dropdown_w320');
     $(".dropdown__box[data-preset='guest']").find('.drop__menu').addClass('dropdown_w320');
@@ -124,5 +119,5 @@ $(document).ready(() => {
         }
         return result;
     }
-    console.log(calc([5,0,-5,12,7]))
+    //console.log(calc([5,0,-5,12,7]))
   }); 

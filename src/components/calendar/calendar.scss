@@ -1,0 +1,114 @@
+@import '@/theme/variables.scss';
+.calendar {
+    width: 320px;
+}
+
+.calendar__box {
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.75);
+    height: 44px;  
+}
+
+.calendar__select {
+    width: 320px;
+    height: 369px;
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border-radius: 4px;
+    position: relative;
+    display: none;
+}
+.calendar__select_active {
+    display: block;
+}
+
+.calendar__content {};
+
+.calendar__week-days {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+};
+
+.calendar__week-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: #BC9CFF;
+};
+
+.calendar__nav {};
+
+.calendar__prev {
+    &:after {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-family: 'Material Icons';
+        font-size: 24px;
+        content: 'arrow_back';
+        position: absolute;
+        color: #BC9CFF;
+      }
+};
+.calendar__next {
+    &:after {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: 'Material Icons';
+        font-size: 24px;
+        content: 'arrow_forward';
+        position: absolute;
+        color: #BC9CFF;
+      }
+};
+
+.calendar__month {
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 23px;
+    text-align: center;
+    color: #1F2041;
+    margin: 20px auto 7px;
+}
+
+
+.calendar__exit,
+.calendar__arrive {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 4px 4px 0 0;
+    background: #FFFFFF;
+    color: rgba(31, 32, 65, 0.75);
+    width: 150px;
+    position: relative;
+    &::after{
+        top: 10px;
+        right: 10px;
+        position: absolute;
+        font-family: 'Material Icons';
+        font-size: 24px;
+        content: 'keyboard_arrow_down';
+    }
+}
+
