@@ -1,58 +1,105 @@
+import { add, before } from 'lodash';
 import './calendar.scss'
-//var now = new Date().toLocaleDateString(); // 19.12.2019
-var now = new Date();
-//console.log( now );
-//console.log( now.getTimezoneOffset() );
 
 $(document).ready(function() {
-    
-
-    function mostime() {
-        var d = new Date()
-        var utc = 3;
-        d.setHours( d.getHours() + utc, d.getMinutes() + d.getTimezoneOffset()  );
-        return d;
-    }
     var timeNow = mostime();
-    var mounthNum = timeNow.getMonth()
-    var dateNum = timeNow.getDate()
     var dayNum = timeNow.getDay()
     var yearNum = timeNow.getFullYear()
-    
-    function getMounthName(dateNum) {
-        switch (dateNum) {
-            case 0: return 'Январь';
-            case 1: return 'Февраль';
-            case 2: return 'Март';
-            case 3: return 'Апрель';
-            case 4: return 'Май';
-            case 5: return 'Июнь';
-            case 6: return 'Июль';
-            case 7: return 'Август';
-            case 8: return 'Сентябрь';
-            case 9: return 'Октябрь';
-            case 10: return 'Ноябрь';
-            case 11: return 'Декабрь';
-        }
+    var mouthDiff = 0;
+
+    function mostime(diff = 0) {
+        var d = new Date()
+        var utc = 3;
+        d.setHours(d.getHours() + utc, d.getMinutes() + d.getTimezoneOffset());
+        d.setMonth(d.getMonth() + diff);
+        return d;
     }
-    var mouthName = null;
-    var test = mostime()
-    test.setDate(30)
-    console.log(test.getDate())
-    console.log(getMounthName(mounthNum))
 
+    function calDateGen(diff) {
+        var firstDay = mostime(diff);
+        firstDay.setDate(1)
+        var beforeDays = [];
+        var dayBefore = mostime(diff);
+        dayBefore.setDate(1);
+        var totalElems = 0;
+        $('.calendar__dates').empty()
+        if (firstDay.getDay() !== 1) {
+             console.log(firstDay.getDay())
+             console.log(dayBefore.getDay())
+             for (var i = 1; dayBefore.getDay() !== 1; i++) {
+                var dayBefore = mostime(diff);
+                dayBefore.setDate(1);
+                dayBefore.setDate(dayBefore.getDate() - i)
+                beforeDays.push(dayBefore)
+             }
+             beforeDays.reverse()
+             console.log(beforeDays)
+        }
+        console.log(beforeDays)
+        beforeDays.forEach(function(item, i, arr) {
+            $('.calendar__dates').append(`<div class="calendar__date calendar__other-month">${item.getDate()}</div>`);
+            totalElems += 1
+         })
+        for (var i = 1; i <= 31; i++) {
+            var thisMouth = mostime(diff)
+            thisMouth.setDate(i);
+            if (thisMouth.getMonth() === firstDay.getMonth()) {
+            $('.calendar__dates').append(`<div class="calendar__date">${thisMouth.getDate()}</div>`);
+            totalElems += 1}
+        } 
+
+        if (!(totalElems % 7 === 0)) {
+            //firstDay.setMonth(firstDay.getMonth + 1);
+            //firstDay.setDate(1)
+            for (var i = 1; !(totalElems % 7 === 0); i++) {
+                $('.calendar__dates').append(`<div class="calendar__date calendar__other-month">${i}</div>`);
+                totalElems += 1
+            }}
+        
+    }
+    function getMounthName(date) {
+        var dateNum = date.getMonth();
+        var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        return months[dateNum]
+    }
+
+    function calTitle(diff) {
+        var date = mostime(diff)
+        var month = getMounthName(date);
+        var year = date.getFullYear();
+        $('.calendar__select').find('.calendar__month').empty();
+        $('.calendar__select').find('.calendar__month').html(`${month}<br>${year}`);
+        calDateGen(diff);
+    }
     
+    var mouthName = null;
 
-    console.log(timeNow);
-    $('.calendar__select').data('year', yearNum)
+    $('.calendar__select').data('year', String(yearNum))
+
     $('.calendar__arrive').click(
         function(){
             $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active'); 
+            mouthDiff = 0; 
+            calTitle(mouthDiff)
     },); 
 
     $('.calendar__exit').click(
         function(){
-            $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active');   
+            $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active');  
+            mouthDiff = 0; 
+            calTitle(mouthDiff)
+    },); 
+
+    $('.calendar__prev').click(
+        function(){
+            mouthDiff -= 1;
+            calTitle(mouthDiff)
+    },); 
+
+    $('.calendar__next').click(
+        function(){
+            mouthDiff += 1;
+            calTitle(mouthDiff)
     },); 
 
     

@@ -29,12 +29,52 @@
     display: block;
 }
 
-.calendar__content {};
-
-.calendar__week-days {
-    margin: 0 auto;
+.calendar__content-box {
     display: flex;
     justify-content: center;
+}
+
+.calendar__content {
+    
+    max-height: 320px;
+    width: 280px;
+};
+.calendar__dates {
+    
+}
+.calendar__date {
+    font-family: $font-mont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(31, 32, 65, 0.5);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 22px;
+    &:hover {
+        color: #FFFFFF;
+        font-weight: bold;
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+}
+
+.calendar__other-month {
+    color: rgba(31, 32, 65, 0.25);
+}
+
+
+.calendar__week-days {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 280px;
 };
 
 .calendar__week-day {
@@ -51,6 +91,7 @@
     color: #BC9CFF;
 };
 
+
 .calendar__nav {};
 
 .calendar__prev {
@@ -63,6 +104,7 @@
         content: 'arrow_back';
         position: absolute;
         color: #BC9CFF;
+        cursor: pointer;
       }
 };
 .calendar__next {
@@ -75,6 +117,7 @@
         content: 'arrow_forward';
         position: absolute;
         color: #BC9CFF;
+        cursor: pointer;
       }
 };
 
