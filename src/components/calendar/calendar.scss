@@ -16,7 +16,7 @@
 
 .calendar__select {
     width: 320px;
-    height: 369px;
+    //height: 369px;
     background: #FFFFFF;
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
@@ -35,13 +35,25 @@
 }
 
 .calendar__content {
-    
     max-height: 320px;
     width: 280px;
 };
 .calendar__dates {
     
 }
+
+.calendar__date_selected {
+    color: #FFFFFF;
+    font-weight: bold;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.calendar__date_hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
 .calendar__date {
     font-family: $font-mont;
     font-style: normal;
@@ -59,9 +71,9 @@
     cursor: pointer;
     border-radius: 22px;
     &:hover {
-        color: #FFFFFF;
-        font-weight: bold;
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        //color: #FFFFFF;
+        //font-weight: bold;
+        //background: gray;
     }
 }
 
@@ -69,6 +81,10 @@
     color: rgba(31, 32, 65, 0.25);
 }
 
+.calendar__curr-date {
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    color: rgba(31, 32, 65, 0.5);
+}
 
 .calendar__week-days {
     display: flex;
@@ -137,13 +153,11 @@
 .calendar__arrive {
     display: flex;
     align-items: center;
-    height: 44px;
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
     background: #FFFFFF;
     color: rgba(31, 32, 65, 0.75);
-    width: 150px;
     position: relative;
     &::after{
         top: 10px;
@@ -153,5 +167,40 @@
         font-size: 24px;
         content: 'keyboard_arrow_down';
     }
+}
+
+.calendar__exit-text,
+.calendar__arrive-text {
+    height: 44px;
+    width: 150px;
+    font-family: $font-mont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(31, 32, 65, 0.75);
+    padding-left: 15px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.calendar__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.calendar__clear,
+.calendar__apply {
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #BC9CFF;
+    margin: 20px;
+    cursor: pointer;
 }
 
