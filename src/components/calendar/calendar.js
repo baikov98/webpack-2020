@@ -15,6 +15,17 @@ $(document).ready(function() {
         return d;
     }
 
+    //- date1 > date2?
+    function compareDates(date1, date2) {
+        if (date1.year > date2.year) return true; else if (date1.year < date2.year) {return false};
+        if (date1.month > date2.month) return true; else if (date1.month < date2.month) {return false}
+        if (date1.year === date2.year) {
+            if (date1.month === date2.month) {
+                if (date1.date > date2.date) {return true} else return false;
+            } else return false
+        } else return false
+    }
+
     function calDateGen(diff) {
         console.log(stage)
         
@@ -50,7 +61,7 @@ $(document).ready(function() {
             $('.calendar__dates')
             .append(`<div data-date="${thisMthday.getDate()}" data-month="${thisMthday.getMonth()}" data-year="${thisMthday.getFullYear()}" class="calendar__date">${thisMthday.getDate()}</div>`);
             totalElems += 1}
-        } 
+        }
         //- даты следующего месяца
         if (!(totalElems % 7 === 0)) {
             for (var i = 1; !(totalElems % 7 === 0); i++) {
@@ -66,51 +77,83 @@ $(document).ready(function() {
 
         //- нажатие на дату
         $('.calendar__date').click(function(){
-            console.log('clic')
-            if (stage === 1) {
-                stage = 2;
+            
+            if (stage === 1) {   //- получаем обьект дата с кликнутой даты
                 var dt = $(this).data();
-                var exit = $(this).parents('.calendar').find('.calendar__exit-text');
-                $(this).addClass('calendar__date_selected');
-                exit.val(`${dt.date}.${dt.month}.${dt.year}`);
-                exit.attr('data-date', `${dt.date}`);
-                exit.attr('data-month', `${dt.month}`);
-                exit.attr('data-year', `${dt.year}`);
+                var arrData = $(this).parents('.calendar')
+                .find('.calendar__arrive-text').data(); //- получаем обьект дата из инпута прибытия
+                console.group(arrData)
+                
+                //- дата отбытия больше даты прибытия
+                if (compareDates(dt, arrData)) {
+                    var exit = $(this).parents('.calendar').find('.calendar__exit-text');
+                    console.log('штатный режим')
+                    var dtDate = $(this).data('date')
+                    var dtMonth = $(this).data('month')
+                    var dtYear = $(this).data('year')
+                    $(this).addClass('calendar__date_selected');
+                    exit.data('date', dtDate);
+                    exit.data('month', dtMonth);
+                    exit.data('year', dtYear);
+                    
+                    dtMonth += 1;
+                    
+                    if (dtDate < 10) {dtDate = '0' + dtDate}
+                    if (dtMonth < 10) {dtMonth = '0' + dtMonth}
+                    exit.val(`${dtDate}.${dtMonth}.${dtYear}`);
+                    stage = 2;
+                }
+                //- дата прибытия больше даты отбытия
+                if (compareDates(arrData, dt)) {
+                    $('.calendar__date').each(function(){$(this).removeClass('calendar__date_selected')})
+                    console.log('zasel')
+                    var arrive = $(this).parents('.calendar').find('.calendar__arrive-text');
+                    $(this).addClass('calendar__date_selected');
+                    var dtDate = $(this).data('date')
+                    var dtMonth = $(this).data('month')
+                    var dtYear = $(this).data('year')
+                    arrive.data('date', dtDate);
+                    arrive.data('month', dtMonth);
+                    arrive.data('year', dtYear);
+                    
+                    dtMonth += 1;
+                    if (dtDate < 10) {dtDate = '0' + dtDate}
+                    if (dtMonth < 10) {dtMonth = '0' + dtMonth}
+                    arrive.val(`${dtDate}.${dtMonth}.${dtYear}`);
+                    stage = 1;
+                }
             }
             if (stage === 0) {
                 stage = 1;
                 var dt = $(this).data();
                 var arrive = $(this).parents('.calendar').find('.calendar__arrive-text');
                 $(this).addClass('calendar__date_selected');
+                arrive.data('date', dt.date);
+                arrive.data('month', dt.month);
+                arrive.data('year', dt.year);
+                dt.month += 1;
+                if (dt.date < 10) {dt.date = `0${dt.date}`}
+                if (dt.month < 10) {dt.month = `0${dt.month}`}
                 arrive.val(`${dt.date}.${dt.month}.${dt.year}`);
-                arrive.attr('data-date', `${dt.date}`);
-                arrive.attr('data-month', `${dt.month}`);
-                arrive.attr('data-year', `${dt.year}`);
+                
         } 
 
-        },);
-
-        //- состояние: выбрана дата прибытия
-        if (stage >= 1) {
-            var dataobj = $('.calendar__arrive-text').data()
-            console.log(dataobj)
-            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
-            .addClass('calendar__date_selected')
-        }
-        //- состояние: выбрана дата отбытия
-        if (stage === 2) {
-            var dataobj = $('.calendar__exit-text').data()
-            console.log(dataobj)
-            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
-            .addClass('calendar__date_selected')
-        }
 
         //- наведение выши
         $('.calendar__date').mouseenter(function(){
             if (stage === 1) {
             $(this).addClass('calendar__date_hover');
-            var dt = $(this).data()
-            console.log(dt)
+            var mouseEntrDate = $(this).data()
+            var arriveDate = $(this).parents('.calendar').find('.calendar__arrive-text').data()
+            $('.calendar__date').each(function(){
+                var eachDate = $(this).data()
+                $(this).removeClass('calendar__in-range')
+                //console.log(compareDates(dt, eachDate))
+                if ((compareDates(eachDate, arriveDate) && compareDates(mouseEntrDate, eachDate)) ||
+                    (compareDates(eachDate, mouseEntrDate) && compareDates(arriveDate, eachDate))) {
+                    $(this).addClass('calendar__in-range')
+                }
+            })
         }})
 
         $('.calendar__date').mouseleave(function(){
@@ -118,14 +161,42 @@ $(document).ready(function() {
             $(this).removeClass('calendar__date_hover');
         }})
 
+        },);
+
+        
+        
+        
+        //- кнопка очистки
         $('.calendar__clear').click(function(){
             stage = 0;
-            $(this).parents('.calendar').find('.calendar__arrive-text').val('')
-            $(this).parents('.calendar').find('.calendar__exit-text').val('')
+            var cal = $(this).parents('.calendar')
+            cal.find('.calendar__arrive-text').val('')
+            cal.find('.calendar__exit-text').val('')
+            cal.find('.calendar__arrive-text').removeData('year')
+            cal.find('.calendar__exit-text').removeData()
             $(this).parents('.calendar__select').find('.calendar__date').each(function(){
                 $(this).removeClass('calendar__date_selected');
+                $(this).removeClass('calendar__in-range');
             })
         })
+
+        
+        //- состояние: выбрана дата отбытия
+        if (stage === 2) {
+            var dataobj = $('.calendar__exit-text').data() //- берем объект дата из инпута
+            console.log('if - stage 2')
+            console.log(dataobj)
+            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
+            .addClass('calendar__date_selected') //- подсвечиваем дату отбытия
+        }
+        //- состояние: выбрана дата прибытия
+        if (stage >= 1) {
+            var dataobj = $('.calendar__arrive-text').data() //- берем объект дата из инпута
+            console.log('if - stage 1+')
+            console.log(dataobj)
+            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
+            .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
+        }
     }
 
 

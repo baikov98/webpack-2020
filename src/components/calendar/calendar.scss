@@ -42,11 +42,7 @@
     
 }
 
-.calendar__date_selected {
-    color: #FFFFFF;
-    font-weight: bold;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-}
+
 
 .calendar__date_hover {
     color: #FFFFFF;
@@ -77,6 +73,8 @@
     }
 }
 
+
+
 .calendar__other-month {
     color: rgba(31, 32, 65, 0.25);
 }
@@ -84,6 +82,17 @@
 .calendar__curr-date {
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
     color: rgba(31, 32, 65, 0.5);
+}
+
+.calendar__in-range {
+    background-color: hotpink;
+    border-radius: 8px;
+}
+
+.calendar__date_selected {
+    color: #FFFFFF;
+    font-weight: bold;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
 .calendar__week-days {
