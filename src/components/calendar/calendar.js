@@ -28,8 +28,6 @@ $(document).ready(function() {
 
     function calDateGen(diff) {
         console.log(stage)
-        
-        
         var firstDay = mostime(diff);
         firstDay.setDate(1)
         var beforeDays = [];
@@ -125,19 +123,22 @@ $(document).ready(function() {
             }
             if (stage === 0) {
                 stage = 1;
-                var dt = $(this).data();
+                //var dt = $(this).data();
                 var arrive = $(this).parents('.calendar').find('.calendar__arrive-text');
-                $(this).addClass('calendar__date_selected');
-                arrive.data('date', dt.date);
-                arrive.data('month', dt.month);
-                arrive.data('year', dt.year);
-                dt.month += 1;
-                if (dt.date < 10) {dt.date = `0${dt.date}`}
-                if (dt.month < 10) {dt.month = `0${dt.month}`}
-                arrive.val(`${dt.date}.${dt.month}.${dt.year}`);
                 
+                $(this).addClass('calendar__date_selected');
+                
+                var dtDate = $(this).data('date')
+                var dtMonth = $(this).data('month')
+                var dtYear = $(this).data('year')
+                arrive.data('date', dtDate);
+                arrive.data('month', dtMonth);
+                arrive.data('year', dtYear);
+                dtMonth += 1;
+                if (dtDate < 10) {dtDate = `0${dtDate}`}
+                if (dtMonth < 10) {dtMonth = `0${dtMonth}`}
+                arrive.val(`${dtDate}.${dtMonth}.${dtYear}`);
         } 
-
 
         //- наведение выши
         $('.calendar__date').mouseenter(function(){
@@ -145,10 +146,22 @@ $(document).ready(function() {
             $(this).addClass('calendar__date_hover');
             var mouseEntrDate = $(this).data()
             var arriveDate = $(this).parents('.calendar').find('.calendar__arrive-text').data()
+            var mouseEntr = $(this)
+            
             $('.calendar__date').each(function(){
                 var eachDate = $(this).data()
+
                 $(this).removeClass('calendar__in-range')
-                //console.log(compareDates(dt, eachDate))
+                $(this).removeClass('calendar__range-to');
+                $(this).removeClass('calendar__range-from');
+                if (compareDates(mouseEntrDate, arriveDate)) {
+                    mouseEntr.addClass('calendar__range-to');
+                    $(this).parents('.calendar__select').find('.calendar__date_selected').addClass('calendar__range-from')
+                }
+                if (compareDates(arriveDate, mouseEntrDate)) {
+                    mouseEntr.addClass('calendar__range-from');
+                    $(this).parents('.calendar__select').find('.calendar__date_selected').addClass('calendar__range-to')
+                }
                 if ((compareDates(eachDate, arriveDate) && compareDates(mouseEntrDate, eachDate)) ||
                     (compareDates(eachDate, mouseEntrDate) && compareDates(arriveDate, eachDate))) {
                     $(this).addClass('calendar__in-range')
@@ -157,15 +170,14 @@ $(document).ready(function() {
         }})
 
         $('.calendar__date').mouseleave(function(){
+            
             if (true) {
+            
             $(this).removeClass('calendar__date_hover');
         }})
 
         },);
 
-        
-        
-        
         //- кнопка очистки
         $('.calendar__clear').click(function(){
             stage = 0;
@@ -177,17 +189,25 @@ $(document).ready(function() {
             $(this).parents('.calendar__select').find('.calendar__date').each(function(){
                 $(this).removeClass('calendar__date_selected');
                 $(this).removeClass('calendar__in-range');
+                $(this).removeClass('calendar__range-to');
+                $(this).removeClass('calendar__range-from');
             })
         })
 
         
         //- состояние: выбрана дата отбытия
         if (stage === 2) {
-            var dataobj = $('.calendar__exit-text').data() //- берем объект дата из инпута
-            console.log('if - stage 2')
-            console.log(dataobj)
+            var dataobj = $('.calendar__exit-text').data()
+            var dataobj2 = $('.calendar__arrive-text').data() //- берем объект дата из инпута
+            $('.calendar__date').each(function(){
+                if ( (compareDates($(this).data(), dataobj2)) && (compareDates(dataobj, $(this).data())) ) {
+                    $(this).addClass('calendar__in-range')
+                }
+            })
             $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
-            .addClass('calendar__date_selected') //- подсвечиваем дату отбытия
+            .addClass('calendar__date_selected calendar__range-to'); //- подсвечиваем дату отбытия
+            $(`.calendar__date[data-date='${dataobj2.date}'][data-month='${dataobj2.month}'][data-year='${dataobj2.year}']`)
+            .addClass('calendar__range-from');
         }
         //- состояние: выбрана дата прибытия
         if (stage >= 1) {
@@ -198,8 +218,6 @@ $(document).ready(function() {
             .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
         }
     }
-
-
 
     function getMounthName(date) {
         var dateNum = date.getMonth();
@@ -216,8 +234,6 @@ $(document).ready(function() {
         calDateGen(diff);
     }
     
-    var monthName = null;
-
     $('.calendar__select').data('year', String(yearNum))
 
     $('.calendar__arrive').click(function(){
@@ -242,7 +258,21 @@ $(document).ready(function() {
             calTitle(monthDiff)
     },); 
 
-    
+    $(document).click(
+        function(event){
+            var arr = ['.calendar__select']
+            var gg = $('[class*="calendar"]').each(function() { 
+                var str = '.' + $(this).attr('class')
+            arr.push(str); });
+            arr.splice(-1, 1)
+            var result = arr.join(', ')
+            
+            if (!event.target.matches(result)) {
+                console.log('event-click')
+               // console.log(event)
+                $('.calendar__select').removeClass('calendar__select_active')
+            }
+    })
 
 
 
