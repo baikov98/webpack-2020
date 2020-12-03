@@ -1,0 +1,22 @@
+//- 
+    options.id - имя списка
+    options.items - обьект названий чекбоксов и id
+    options.name - имя списка
+    
+mixin exp-check-list(options)
+    
+    .exp-check-list
+        details.exp-check-list__expand
+            summary.exp-check-list__summary= options.name
+                i.material-icons.exp-check-list__arrow 
+            for item in options.items
+                .exp-check-list__block
+                    input(type="checkbox" id= item.id).exp-check-list__checkbox
+                    label(for= item.id).exp-check-list__label= item.title
+                    .exp-check-list__check
+                        .exp-check-list__check-in
+
+                    
+
+                
+

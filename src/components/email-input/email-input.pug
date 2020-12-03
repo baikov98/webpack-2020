@@ -1,0 +1,10 @@
+//- 
+    options.class - классы для элемента
+
+mixin email-input(options)
+    if !options
+    - options = {}
+
+    .email-input(class= options.class)
+        input(type="email" placeholder="Email" maxlength="70" id="email").email-input__box
+        .email-input__icon

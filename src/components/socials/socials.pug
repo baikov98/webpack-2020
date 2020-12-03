@@ -1,0 +1,13 @@
+//- 
+    options.class - класс длякаждой иконки соц. сети
+mixin socials(options)
+    if !options
+    - options = {}
+
+    .socials
+        .socials__item(class= options.class)
+            a(href="#").fab.fa-twitter
+        .socials__item(class= options.class)
+            a(href="#").fab.fa-facebook-square
+        .socials__item(class= options.class)
+            a(href="#").fab.fa-instagram

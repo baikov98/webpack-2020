@@ -27,7 +27,7 @@ $(document).ready(function() {
     }
 
     function calDateGen(diff) {
-        console.log(stage)
+
         var firstDay = mostime(diff);
         firstDay.setDate(1)
         var beforeDays = [];
@@ -80,12 +80,11 @@ $(document).ready(function() {
                 var dt = $(this).data();
                 var arrData = $(this).parents('.calendar')
                 .find('.calendar__arrive-text').data(); //- получаем обьект дата из инпута прибытия
-                console.group(arrData)
                 
                 //- дата отбытия больше даты прибытия
                 if (compareDates(dt, arrData)) {
                     var exit = $(this).parents('.calendar').find('.calendar__exit-text');
-                    console.log('штатный режим')
+
                     var dtDate = $(this).data('date')
                     var dtMonth = $(this).data('month')
                     var dtYear = $(this).data('year')
@@ -104,7 +103,7 @@ $(document).ready(function() {
                 //- дата прибытия больше даты отбытия
                 if (compareDates(arrData, dt)) {
                     $('.calendar__date').each(function(){$(this).removeClass('calendar__date_selected')})
-                    console.log('zasel')
+
                     var arrive = $(this).parents('.calendar').find('.calendar__arrive-text');
                     $(this).addClass('calendar__date_selected');
                     var dtDate = $(this).data('date')
@@ -212,8 +211,6 @@ $(document).ready(function() {
         //- состояние: выбрана дата прибытия
         if (stage >= 1) {
             var dataobj = $('.calendar__arrive-text').data() //- берем объект дата из инпута
-            console.log('if - stage 1+')
-            console.log(dataobj)
             $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
             .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
         }
@@ -266,12 +263,11 @@ $(document).ready(function() {
             arr.push(str); });
             arr.splice(-1, 1)
             var result = arr.join(', ')
-            
+            try {
             if (!event.target.matches(result)) {
-                console.log('event-click')
-               // console.log(event)
                 $('.calendar__select').removeClass('calendar__select_active')
-            }
+            }}
+            catch {}
     })
 
 

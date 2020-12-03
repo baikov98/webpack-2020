@@ -2,7 +2,7 @@ import $ from 'jquery';
 global.jQuery = $;
 global.$ = $;
 
-
+import '../node_modules/inputmask/bundle'
 import './theme/text-fonts.scss'
 import './theme/global.scss';
 

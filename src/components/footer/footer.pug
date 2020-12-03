@@ -4,7 +4,8 @@ mixin footer-items(title, ...items)
         each item in items
             .footer__link-text
                 a.text-head-foot(href="#")= item
-
+include ../email-input/email-input
+include ../socials/socials
 .footer
     .footer__container
         .footer__info
@@ -18,18 +19,11 @@ mixin footer-items(title, ...items)
             .footer__column
                 .text-bold-12.footer__bold-text подписка
                 .footer__disc Получайте специальные предложения и новости сервиса
-                .email-input.footer__email
-                    input(type="email" placeholder="Email" maxlength="70" id="email").email-input__box
-                    .email-input__icon
+                +email-input({class:'footer__email'})
 
     .footer__copyright
         .footer__copy-container
             .copy-text.footer__copy-text Copyright © 2018 Toxin отель. Все права зачищены.
-            .socials
-                .socials__item.footer__socials
-                     a(href="#").fab.fa-twitter
-                .socials__item.footer__socials
-                     a(href="#").fab.fa-facebook-square
-                .socials__item.footer__socials
-                     a(href="#").fab.fa-instagram
+            +socials({class: 'footer__socials'})
+           
                 

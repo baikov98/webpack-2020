@@ -2,14 +2,28 @@ extends main
 block variables
     - var pageTitle = 'Headers & Footers'
 block content
-    //include components/gray-logo/gray-logo.pug
-    .ber(style='display:flex;')
-        include components/calendar/calendar.pug
-        //include components/dropdown-guests/dropdown-guests.pug
-    //include components/header/header.pug
-    //include components/header/header-logged.pug
-    //include components/footer/footer.pug
-    //include components/copyright/copyright.pug
+    //- include components/masked-t-field/masked-t-field
+    //- +masked-t-field()
+    //- include components/exp-check-list/exp-check-list
+    //- +exp-check-list({name: 'expandable checkbox list', items: [{id: 'breakfast', title: 'Завтрак'},
+                                            {id: 'writingdesk', title: 'Письменный стол'},
+                                            {id: 'feedingdesk', title: 'Стул для кормления'},
+                                            {id: 'bed', title: 'Кроватка'},
+                                            {id: 'tv', title: 'Телевизор'},
+                                            {id: 'shampoo', title: 'Шампунь'},
+                                            {id: 'tv2', title: 'Телевизор'},
+                                            {id: 'shampoo2', title: 'Шампунь'},
+                                             ]})
+    include components/benefits-desc/benefits-desc
+    +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
+    +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
+    //- .ber(style='display:flex;')
+    //- include components/footer/footer.pug
+    //- include components/dropdown-guests/dropdown-guests.pug
+    //- include components/header/header.pug
+    //- include components/header/header-logged.pug
+    //- include components/footer/footer.pug
+    //- include components/copyright/copyright.pug
   
 
         
