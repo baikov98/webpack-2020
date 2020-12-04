@@ -1,0 +1,18 @@
+//-
+    options.rating - массив с оценкой
+
+
+mixin rating-star(options)
+    -   let first_arr = []
+    -   let second_arr = []
+    -   let add = 5 - Number(options.rating)
+    -   for (let i = 0; options.rating > i; i++) {first_arr.push(1)}
+    -   for (let i = 0; i < add; i++) {second_arr.push(1)}
+
+    .rating-star
+        for item in first_arr
+            .rating-star__item
+        for item in second_arr
+            .rating-star__item_empty
+
+    

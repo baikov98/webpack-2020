@@ -1,0 +1,25 @@
+@import '@/theme/variables.scss';
+
+.rating-star {
+    display: inline-flex;
+    font-family: Material Icons;
+}
+
+.rating-star__item {
+    background: $grad-color; /* Градиент для текста */
+    -webkit-background-clip: text; /* Обрезаем фон по тексту */
+    -webkit-text-fill-color: transparent; /* Прозрачный текст */
+
+    &::after {
+        content: 'star';
+    }
+    &_empty {
+        background: $grad-color; /* Градиент для текста */
+        -webkit-background-clip: text; /* Обрезаем фон по тексту */
+        -webkit-text-fill-color: transparent; /* Прозрачный текст */
+        &::after {
+            content: 'star_border';
+        }
+    }
+}
+    

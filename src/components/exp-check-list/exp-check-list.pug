@@ -11,7 +11,7 @@ mixin exp-check-list(options)
     .exp-check-list
         details.exp-check-list__expand
             summary.exp-check-list__summary= options.name
-                i.material-icons.exp-check-list__arrow 
+                i.material-icons.exp-check-list__arrow
             for item in options.items
                 +checkbox({id : item.id, title: item.title})
                 

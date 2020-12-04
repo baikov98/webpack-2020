@@ -7,12 +7,10 @@ block content
     include components/radio-but/radio-but
 
     include components/toggle-but/toggle-but
-    +toggle-but({title: 'Получать спецпредложения', id: 'spec-offer'})
-    +radio-but({name: 'sex', items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
-                                    {id: 'radio-woman', title: 'Женщина'}, 
-                                    ]})
-
+    
     include components/exp-check-list/exp-check-list
+    include components/like-butt/like-butt
+    include components/rating-star/rating-star
     +exp-check-list({name: 'expandable checkbox list', items: [{id: 'breakfast', title: 'Завтрак'},
                                             {id: 'writingdesk', title: 'Письменный стол'},
                                             {id: 'feedingdesk', title: 'Стул для кормления'},
@@ -22,7 +20,14 @@ block content
                                             {id: 'tv2', title: 'Телевизор'},
                                             {id: 'shampoo2', title: 'Шампунь'},
                                              ]})
-    
+    +toggle-but({title: 'Получать спецпредложения', id: 'spec-offer'})
+    +radio-but({name: 'sex', items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
+                                    {id: 'radio-woman', title: 'Женщина'}, 
+                                    ]})
+
+    +like-butt({number: '12', content: 'favorite_border'})
+    +rating-star({rating: 3})
+
     //- include components/benefits-desc/benefits-desc
     //- +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
     //- +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
