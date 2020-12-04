@@ -1,0 +1,11 @@
+//-
+    options.text - текст под чекбоксом
+    options.title - заголовок чекбокса
+    options.id - id чекбокса
+
+include ../checkbox/checkbox
+
+mixin rich-checkbox(options)
+    .rich-checkbox
+        +checkbox({title : options.title, id : options.id, tclass: 'rich-checkbox_bold' })
+        .rich-checkbox__text= options.text
