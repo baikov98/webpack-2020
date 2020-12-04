@@ -5,6 +5,9 @@ block content
     //- include components/masked-t-field/masked-t-field
     //- +masked-t-field()
     include components/radio-but/radio-but
+
+    include components/toggle-but/toggle-but
+    +toggle-but({title: 'Получать спецпредложения', id: 'spec-offer'})
     +radio-but({name: 'sex', items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
                                     {id: 'radio-woman', title: 'Женщина'}, 
                                     ]})

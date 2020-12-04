@@ -1,0 +1,12 @@
+//- 
+    options.title название переключателя
+    options.id id переключателя
+
+mixin toggle-but(options)
+    .toggle-but
+        label(for= options.id).toggle-but__label= options.title
+            input(type="checkbox" id= options.id).toggle-but__input
+            .toggle-but__slider
+        
+        
+
