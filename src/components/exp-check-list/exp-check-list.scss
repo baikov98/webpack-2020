@@ -28,36 +28,12 @@ details[open] {
     }
 };
 
-.exp-check-list__block {
-    display: flex;
-    padding: 5px 0;
-}
-.exp-check-list__checkbox {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-.exp-check-list__label {
-    display: inline;
-    font-family: $font-mont;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    color: rgba(31, 32, 65, 0.5);
-}
-
 summary:focus {
   outline:0;
   box-shadow: inset 0 0 1px rgba(0,0,0,0.3), inset 0 0 2px rgba(0,0,0,0.3);
 }
 
 .exp-check-list {
-    //display: block;
     width: 266px;
     height: 44px;
     outline: none;
@@ -76,72 +52,5 @@ summary:focus {
     color: #1F2041;
     text-transform: uppercase;
 }
-
-/* формируем внешний вид чекбокса в псевдоэлементе before */
-label:before {
-    content: " ";
-    color: #000;
-    display: inline-block;
-    margin-right: 15px;
-    position: relative;
-    text-align: center;
-    text-indent: 0px;
-    width: 20px;
-    height: 20px;
-    background: #FFF;
-    border: 1px solid #e3e3e3;
-    border-image: initial;
-    vertical-align: middle;
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-.exp-check-list__check {
-    visibility: hidden;
-    width: 6px;
-    height: 8px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    position: absolute;
-    transform: rotate(45deg);
-    margin-top: 5px;
-    margin-left: 7px;
-    border: 0px;
-    box-shadow: none;
-}
-
-.exp-check-list__check-in {
-    width: 4px;
-    height: 6px;
-    background-color: #FFF;
-    box-sizing: border-box;
-    border-top: 1px solid #FFF;
-    border-left: 1px solid #FFF;
-}
-
-input:checked ~ .exp-check-list__check {
-    visibility: visible;
-  }
-
-input:checked + label:before {
-    font-family: $font-mont-bold;
-    content: "";
-    border: 1px solid #BC9CFF;
-
-  }
-
-  /* вариации внешнего вида в зав-ти от статуса checkbox */
-  /* checked */
-
-input:disabled + label:before {
-    background: #eee;
-    color: #aaa;
-}
-  
-/* прячем input checkbox */
-input[type="checkbox"] {
-    display: none;
-}
-   
 
 

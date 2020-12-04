@@ -1,0 +1,15 @@
+//- Миксин добавляет группу радио кнопок
+
+    options.items.id - id radio кнопки
+    options.name - имя группы радио кнопок
+    options.items.title - title кнопки
+    options.items.checked - значение по умолчанию
+
+mixin radio-but(options)
+    for item in options.items
+        .radio-but
+            input(checked= item.checked type="radio" id= item.id name= options.name).radio-but__input
+            .radio-but__ring
+                .radio-but__circle
+            label(for= item.id).radio-but__label= item.title
+            

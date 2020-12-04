@@ -4,8 +4,13 @@ block variables
 block content
     //- include components/masked-t-field/masked-t-field
     //- +masked-t-field()
-    //- include components/exp-check-list/exp-check-list
-    //- +exp-check-list({name: 'expandable checkbox list', items: [{id: 'breakfast', title: 'Завтрак'},
+    include components/radio-but/radio-but
+    +radio-but({name: 'sex', items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
+                                    {id: 'radio-woman', title: 'Женщина'}, 
+                                    ]})
+
+    include components/exp-check-list/exp-check-list
+    +exp-check-list({name: 'expandable checkbox list', items: [{id: 'breakfast', title: 'Завтрак'},
                                             {id: 'writingdesk', title: 'Письменный стол'},
                                             {id: 'feedingdesk', title: 'Стул для кормления'},
                                             {id: 'bed', title: 'Кроватка'},
@@ -14,9 +19,10 @@ block content
                                             {id: 'tv2', title: 'Телевизор'},
                                             {id: 'shampoo2', title: 'Шампунь'},
                                              ]})
-    include components/benefits-desc/benefits-desc
-    +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
-    +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
+    
+    //- include components/benefits-desc/benefits-desc
+    //- +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
+    //- +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
     //- .ber(style='display:flex;')
     //- include components/footer/footer.pug
     //- include components/dropdown-guests/dropdown-guests.pug
