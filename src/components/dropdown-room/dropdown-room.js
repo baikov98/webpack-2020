@@ -3,24 +3,48 @@ import './dropdown-room.scss'
 
 $(document).ready(() => {
     function filltext(ctx) {
-        
+        //- заполнение текста инпута если это дропдаун гостей
         if ($(ctx).parents(".dropdown__box").data('preset') === 'guest') {
+            var arr = ['взрослые', 'дети', 'младенцы']
+            var ii = 0;
+            $(ctx).parents('.drop__menu').find('.item__text').each(function() {
+                $(this).text(arr[ii]);
+                ii++;
+            })
             var num = 0;
+            var baby = 0;
             var numtext = 'гостей';
+            var babytext = 'младенцев';
             $(ctx).parents('.drop__menu').find('.item__value').each(function(index, value){
-                num += Number($(this).text());
-            },)
+                if (!($(this).parents('.item__calc').siblings('.item__text').text() === 'младенцы')) {
+                num += Number($(this).text()) } else 
+                { baby += Number($(this).text()) }
+            })
             var inner;
+            var babyinner = '';
             if (num === 1) {numtext = 'гость'};
             if (num >= 2 && num < 5) {numtext = 'гостя'};
+
+            if (baby === 1) {babytext = 'младенец'};
+            if (baby >= 2 && baby < 5) {babytext = 'младенца'};
+
             inner = num + ' ' + numtext;
-            if (num === 0) {
+            if (num < 1) { inner = ''}
+            if (baby > 0) {
+                babyinner = baby + ' ' + babytext
+                inner = inner === '' ? babyinner : inner + ', ' + babyinner
+            }
+
+            if (num === 0 && baby === 0) {
                 inner = 'Сколько гостей';
                 $(ctx).parents('.drop__menu').find('.dropdown__clear').addClass('dropdown__clear_unactive')
             } else {$(ctx).parents('.drop__menu').find('.dropdown__clear').removeClass('dropdown__clear_unactive')}
             
-            $(ctx).parents('.drop__menu').siblings('.drop__text-box').children('.drop__text-field').text(inner);
-        } else {
+            $(ctx).parents('.drop__menu').siblings('.drop__text-box').children('.drop__text-field').val(inner);
+
+        } 
+        else {
+        //- заполнение текста инпута если это дропдаун комнат
         var text = []
         $(ctx).parents('.drop__menu').find('.item__value').each(function(index, value){
             if (Number($(this).text()) !== 0) {
@@ -36,10 +60,11 @@ $(document).ready(() => {
         }, )
         var inner = text.join(" ");
         if (inner === '') {inner = 'Удобства номера'}
-        $(ctx).parents('.drop__menu').siblings('.drop__text-box').children('.drop__text-field').text(inner);
+        $(ctx).parents('.drop__menu').siblings('.drop__text-box').children('.drop__text-field').val(inner);
     }}
 
     function checkval() {
+        //проверка значения - меняет стиль кнопки при 0
         $('.item__value').each(function(){
             if ( Number($(this).text()) === 0 ) {
                 $(this).siblings('.item__calc-dec').addClass('item__calc-dec_unactive')

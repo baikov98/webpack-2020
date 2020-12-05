@@ -1,25 +1,32 @@
-.dropdown__box(data-preset='guest')
-    .drop__text-box
-        .drop__text-field
-    .drop__menu
-        .item 
-            .item__text спальни
-            .item__calc
-                button.item__calc-dec -
-                .item__value 2
-                button.item__calc-inc +
-        .item 
-            .item__text кровати
-            .item__calc
-                button.item__calc-dec -
-                .item__value 2
-                button.item__calc-inc +
-        .item 
-            .item__text ванные комнаты
-            .item__calc
-                button.item__calc-dec -
-                .item__value 0
-                button.item__calc-inc +
+//-
+    options.preset - пресет, по умолчанию room, для гостей - guest
+    options.values - массив начальных значений дропдауна
+
+
+mixin dropdown-room(options)
+
+    .dropdown__box(data-preset= options.preset)
+        .drop__text-box
+            input(type="text" readonly).drop__text-field
+        .drop__menu
+            .item 
+                .item__text спальни
+                .item__calc
+                    button.item__calc-dec -
+                    .item__value= options.values[0]
+                    button.item__calc-inc +
+            .item 
+                .item__text кровати
+                .item__calc
+                    button.item__calc-dec -
+                    .item__value= options.values[1]
+                    button.item__calc-inc +
+            .item 
+                .item__text ванные комнаты
+                .item__calc
+                    button.item__calc-dec -
+                    .item__value= options.values[2]
+                    button.item__calc-inc +
 
 
                 

@@ -34,6 +34,7 @@
 
 .drop__text-field {
     font-family: $font-mont;
+    color: rgba(31, 32, 65, 0.75);
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -43,7 +44,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 15px;
-    width: 175px;
+    width: 180px;
+    outline: none;
+    border: none;
 }
 
 .drop__menu {

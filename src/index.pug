@@ -29,17 +29,19 @@ block content
 
     +like-butt({number: '12', content: 'favorite_border'})
     +rating-star({rating: 3})
-
+    include components/dropdown-room/dropdown-room.pug
+    +dropdown-room({preset: 'guest', values: [1, 2, 3]})
+    +dropdown-room({values: [1, 2, 3]})
     //- include components/benefits-desc/benefits-desc
     //- +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
     //- +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
     //- .ber(style='display:flex;')
     //- include components/footer/footer.pug
-    //- include components/dropdown-guests/dropdown-guests.pug
     //- include components/header/header.pug
     //- include components/header/header-logged.pug
     //- include components/footer/footer.pug
     //- include components/copyright/copyright.pug
+    
   
 
         
