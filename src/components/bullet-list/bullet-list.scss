@@ -1,0 +1,23 @@
+@import '@/theme/variables.scss';
+
+.bullet-list {
+    font-family: $font-mont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.75);
+    list-style-type: none;
+    width: 240px;
+    position: relative;
+    &::before {
+        top: 7px;
+        left: -20px;
+        position: absolute;
+        content: ' ';
+        background: rgba(31, 32, 65, 0.25);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+}

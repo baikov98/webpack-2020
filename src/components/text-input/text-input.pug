@@ -1,0 +1,22 @@
+//- 
+    options.class - классы для элемента
+    options.type - поле type
+    options.placeholder - плейсхолдер
+    options.id - id
+    options.istext - по умолчанию email, 'text' - 320px ширина и нет иконки
+
+mixin text-input(options)
+    - var icon = 'text-input__icon'
+    - var box320 = ''
+    - if (options.istext === 'text') {
+    -    box320 = 'text-input__w320';
+    -    icon = '';}
+
+    .text-input(class= options.class)
+        input(  type= options.type
+                placeholder= options.placeholder
+                maxlength="70"
+                id= options.id
+                class= box320  ).text-input__box
+
+        div(class= icon)
