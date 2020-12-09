@@ -1,48 +1,55 @@
 @import '@/theme/variables.scss';
+
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    font-family: $font-mont-bold, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    color:white;
     border: 0;
     border-radius: 22px;
     background: $grad-color;
     height: 44px;
     width: 320px;
-    &_notfill {
-      color: #BC9CFF;
-      position: relative;
-      width: 99px;
-      background: white;
-      border-image-slice: 1;
+    &_disabled {
+      opacity: 0.5;
+    }
+
+    &__text {
+      font-family: $font-mont-bold, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      color:white;
+      opacity: 1;
+      &_purpletxt {
+        color: #BC9CFF;;
+      }
+    }
+    &__white-space {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
       border-radius: 22px;
+    }
+
+    &_arrow {
       &:after {
-          display: none;
-      }
-      &::before {
-          position: absolute;
-          content: "";
-          top: -2px;
-          bottom: -2px;
-          left: -2px;
-          right: -2px;
-          background: $grad-color;
-          border-radius: 26px;
-          z-index: -1;
-        }
-      }
-    &:after {
         position: absolute;
         right: 10px;
         font-family: 'Material Icons';
         font-size: 24px;
         content: 'arrow_forward';
+        color:white;
       }
+    }
+
+   
 }
 

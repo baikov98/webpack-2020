@@ -1,0 +1,20 @@
+//- 
+    options.space - добавляет белый контейнер при true
+    options.purpletxt - по умолчанию белый, при true - фиолетовый
+    options.arrow - добавляет стрелку при true
+    options.disable - при true снижает opasity button
+
+mixin button(options)
+    -   if (!options) {options = {}}
+    -    var space = '';
+    -    var arrow = '';
+    -    var purpletxt = '';
+    -    var disable = '';
+    -    if (options.space) {space='button__white-space'}
+    -    if (options.arrow) {arrow='button_arrow'}
+    -    if (options.purpletxt) {purpletxt ='button__text_purpletxt'}
+    -    if (options.disable) {disable ='button_disabled'}
+
+    button(class= [arrow, disable]).button
+        div(class= space)
+            div(class= purpletxt).button__text CLICK ME
