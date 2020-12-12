@@ -5,13 +5,16 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 0;
+    box-sizing: border-box;
     border: 0;
     border-radius: 22px;
-    background: $grad-color;
     height: 44px;
     width: 320px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    outline: none;
     &_disabled {
-      opacity: 0.5;
+      background: linear-gradient(180deg, rgba(188, 156, 255, 0.5) 0%, rgba(139, 164, 249, 0.5) 100%);
     }
 
     &__text {
@@ -20,10 +23,9 @@
       font-weight: 500;
       font-size: 12px;
       line-height: 15px;
-      color:white;
-      opacity: 1;
+      color: white;
       &_purpletxt {
-        color: #BC9CFF;;
+        color: #BC9CFF;
       }
     }
     &__white-space {
@@ -37,6 +39,7 @@
       left: 2px;
       right: 2px;
       border-radius: 22px;
+     
     }
 
     &_arrow {

@@ -139,8 +139,15 @@ $(document).ready(function() {
                 arrive.val(`${dtDate}.${dtMonth}.${dtYear}`);
         } 
 
+        
+        },);
+
         //- наведение выши
         $('.calendar__date').mouseenter(function(){
+            if (stage === 0) {
+                $(this).addClass('calendar__date_grayhover');
+            }
+            
             if (stage === 1) {
             $(this).addClass('calendar__date_hover');
             var mouseEntrDate = $(this).data()
@@ -169,13 +176,12 @@ $(document).ready(function() {
         }})
 
         $('.calendar__date').mouseleave(function(){
-            
-            if (true) {
-            
             $(this).removeClass('calendar__date_hover');
-        }})
+        })
 
-        },);
+        $('.calendar__date').mouseleave(function(){
+            $(this).removeClass('calendar__date_grayhover');
+        });
 
         //- кнопка очистки
         $('.calendar__clear').click(function(){
@@ -215,13 +221,13 @@ $(document).ready(function() {
             .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
         }
     }
-
+    //- получить название месяца на русском по цифре
     function getMounthName(date) {
         var dateNum = date.getMonth();
         var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
         return months[dateNum]
     }
-
+    //- функция получает смещение (diff) от текущего месяца, заполняет calendar_month и вызывает calDateGen
     function calTitle(diff) {
         var date = mostime(diff)
         var month = getMounthName(date);
@@ -254,25 +260,22 @@ $(document).ready(function() {
             monthDiff += 1;
             calTitle(monthDiff)
     },); 
+    $('.calendar__apply').click(function(){
+            $(this).parents('.calendar__select').removeClass('calendar__select_active');
+    },);
 
     $(document).click(
         function(event){
-            var arr = ['.calendar__select']
-            var gg = $('[class*="calendar"]').each(function() { 
-                var str = '.' + $(this).attr('class')
-            arr.push(str); });
-            arr.splice(-1, 1)
-            var result = arr.join(', ')
-            try {
-            if (!event.target.matches(result)) {
+            let calsel = $('.calendar')
+            let btn1 = $('.calendar__arrive')
+            let apply = $('.calendar__apply')
+
+            if (! btn1.is(event.target) && btn1.has(event.target).length === 0  &&
+                ! calsel.is(event.target) && calsel.has(event.target).length === 0) {
                 $('.calendar__select').removeClass('calendar__select_active')
-            }}
-            catch {}
+            }
     })
-
-
-
-});//end
+});
 
 
     

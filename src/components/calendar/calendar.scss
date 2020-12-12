@@ -1,6 +1,7 @@
 @import '@/theme/variables.scss';
 .calendar {
     width: 320px;
+    position: relative;
 }
 
 .calendar__box {
@@ -16,14 +17,14 @@
 
 .calendar__select {
     width: 320px;
-    //height: 369px;
     background: #FFFFFF;
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
     box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
     border-radius: 4px;
-    position: relative;
+    position: fixed;
     display: none;
+    z-index: 100;
 }
 .calendar__select_active {
     display: block;
@@ -42,12 +43,14 @@
     
 }
 
-
-
 .calendar__date_hover {
     color: #FFFFFF;
     font-weight: bold;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.calendar__date_grayhover {
+    background-color: #E5E5E5;
 }
 
 .calendar__date {
@@ -153,7 +156,7 @@
 .calendar__prev {
     &:after {
         position: absolute;
-        top: 20px;
+        top: 30px;
         left: 20px;
         font-family: 'Material Icons';
         font-size: 24px;
@@ -166,7 +169,7 @@
 .calendar__next {
     &:after {
         position: absolute;
-        top: 20px;
+        top: 30px;
         right: 20px;
         font-family: 'Material Icons';
         font-size: 24px;
@@ -195,10 +198,11 @@
     align-items: center;
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px;
     background: #FFFFFF;
     color: rgba(31, 32, 65, 0.75);
     position: relative;
+    
     &::after{
         top: 10px;
         right: 10px;
@@ -206,6 +210,7 @@
         font-family: 'Material Icons';
         font-size: 24px;
         content: 'keyboard_arrow_down';
+        color: rgba(31, 32, 65, 0.5);
     }
 }
 
@@ -221,6 +226,8 @@
     color: rgba(31, 32, 65, 0.75);
     padding-left: 15px;
     text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
     outline: none;
 }
 

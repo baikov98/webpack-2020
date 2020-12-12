@@ -144,5 +144,4 @@ $(document).ready(() => {
         }
         return result;
     }
-    //console.log(calc([5,0,-5,12,7]))
   }); 

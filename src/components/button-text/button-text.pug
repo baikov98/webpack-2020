@@ -1,0 +1,10 @@
+//- 
+    options.color - по умолчанию false (белый), при true фиолетовый
+    options.text - текст
+
+mixin button-text(options)
+    - if (!options) {options = {}}
+    - let text = options.text ? options.text : 'CLICK ME'
+    - let color = options.color ? 'button-text_purple' : ''
+
+    .button-text(class= color)= text

@@ -1,0 +1,15 @@
+
+@import '@/theme/variables.scss';
+
+.button-text {
+    font-family: $font-mont-bold, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: white;
+
+    &_purple {
+        color: #BC9CFF;
+    }
+}
