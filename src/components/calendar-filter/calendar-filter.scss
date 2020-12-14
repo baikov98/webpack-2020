@@ -1,0 +1,241 @@
+@import '@/theme/variables.scss';
+
+
+.calendar-filter {
+    position: relative;
+    &__box {
+        width: 266px;
+        display: flex;
+        
+        align-items: center;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75);
+        height: 44px;  
+    }
+
+    &__select {
+        width: 320px;
+        background: #FFFFFF;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        box-sizing: border-box;
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        border-radius: 4px;
+        position: fixed;
+        display: none;
+        z-index: 100;
+        &_active {
+            display: block;
+        }
+    }
+    &__content-box {
+        display: flex;
+        justify-content: center;
+    }
+    &__content {
+        max-height: 320px;
+        width: 280px;
+    }
+    &__date {
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+        text-align: center;
+        color: rgba(31, 32, 65, 0.5);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        &:hover {
+            border-radius: 22px;
+        }
+        &_hover {
+            color: #FFFFFF;
+            font-weight: bold;
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        }
+        &_grayhover {
+            background-color: #E5E5E5;
+        }
+        &_selected {
+            color: #FFFFFF;
+            font-weight: bold;
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            border-radius: 22px;
+        }
+    }
+    &__other-month {
+        color: rgba(31, 32, 65, 0.25);
+    }
+    &__curr-date {
+        border-radius: 22px;
+        background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+        color: rgba(31, 32, 65, 0.5);
+    }
+    &__in-range {
+        background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+        border-radius: 0px;
+    }
+    &__range-from {
+        position: relative;
+        &:before {
+            content: "";
+            background: -webkit-gradient(linear,left top,left bottom,from(rgba(188,156,255,.25)),to(rgba(139,164,249,.25)));
+            background: -o-linear-gradient(top,rgba(188,156,255,.25) 0,rgba(139,164,249,.25) 100%);
+            background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            left: 50%;
+        }
+    }
+    &__range-to {
+        position: relative;
+        &:before {
+            content: "";
+            background: -webkit-gradient(linear,left top,left bottom,from(rgba(188,156,255,.25)),to(rgba(139,164,249,.25)));
+            background: -o-linear-gradient(top,rgba(188,156,255,.25) 0,rgba(139,164,249,.25) 100%);
+            background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            right: 50%;
+        }
+    }
+    &__week-days {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        width: 280px;
+    }
+    &__week-day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        color: #BC9CFF;
+    }
+    &__prev {
+        &:after {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            font-family: 'Material Icons';
+            font-size: 24px;
+            content: 'arrow_back';
+            position: absolute;
+            color: #BC9CFF;
+            cursor: pointer;
+          }
+    }
+    &__next {
+        &:after {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            font-family: 'Material Icons';
+            font-size: 24px;
+            content: 'arrow_forward';
+            position: absolute;
+            color: #BC9CFF;
+            cursor: pointer;
+          }
+    }
+    &__month {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 23px;
+        text-align: center;
+        color: #1F2041;
+        margin: 20px auto 7px;
+    }
+    &__exit {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        border-left: none;
+        box-sizing: border-box;
+        border-radius: 0px 4px 4px 0px;
+        background: #FFFFFF;
+        color: rgba(31, 32, 65, 0.75);
+        position: relative;
+        &::after{
+            top: 10px;
+            right: 10px;
+            position: absolute;
+            font-family: 'Material Icons';
+            font-size: 24px;
+            content: 'keyboard_arrow_down';
+            color: rgba(31, 32, 65, 0.5);
+        }
+    }
+    &__arrive {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        border-right: none;
+        box-sizing: border-box;
+        border-radius: 4px 0px 0px 4px;
+        background: #FFFFFF;
+        color: rgba(31, 32, 65, 0.75);
+        position: relative;
+    }
+    &__exit-text {
+        height: 44px;
+        width: 40px;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba(31, 32, 65, 0.75);
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        }
+    &__arrive-text {
+        height: 44px;
+        width: 226px;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba(31, 32, 65, 0.75);
+        padding-left: 15px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+    }
+    &__clear,
+    &__apply {
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #BC9CFF;
+    margin: 20px;
+    cursor: pointer;
+    }
+}

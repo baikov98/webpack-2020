@@ -3,6 +3,9 @@ global.jQuery = $;
 global.$ = $;
 
 import '../node_modules/inputmask/bundle'
+import '../node_modules/ion-rangeslider/js/ion.rangeSlider.min'
+import '../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css'
+
 import './theme/text-fonts.scss'
 import './theme/global.scss';
 

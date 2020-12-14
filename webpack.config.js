@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+//const IonRangeSlider = require('ion-rangeslider')
 const webpack = require('webpack')
 
 
@@ -85,6 +86,7 @@ const plugins = () => {
         }),
         //new HTMLWebpackPlugin(makeHtml('page')),
         new CleanWebpackPlugin(),
+        //new IonRangeSlider(),
         new CopyWebpackPlugin(
             [
                 { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },

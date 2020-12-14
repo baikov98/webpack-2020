@@ -1,0 +1,25 @@
+.calendar-filter
+    .calendar-filter__box
+        .calendar-filter__arrive
+            input.calendar-filter__arrive-text(placeholder='Выберите даты' autocomplete="off" readonly="true" type="text")
+        .calendar-filter__exit
+            input.calendar-filter__exit-text( autocomplete="off" readonly="true" type="text")
+    .calendar-filter__select(data-year='2011', data-mounth='11')
+        nav.calendar-filter__nav
+            .calendar-filter__prev
+            .calendar-filter__month Август<br>2020
+            .calendar-filter__next
+        .calendar-filter__content-box
+            .calendar-filter__content
+                .calendar-filter__week-days
+                    .calendar-filter__week-day Пн
+                    .calendar-filter__week-day Вт
+                    .calendar-filter__week-day Ср
+                    .calendar-filter__week-day Чт
+                    .calendar-filter__week-day Пт
+                    .calendar-filter__week-day Сб
+                    .calendar-filter__week-day Вс
+                .calendar-filter__dates
+        .calendar-filter__buttons
+            .calendar-filter__clear очистить
+            .calendar-filter__apply применить
