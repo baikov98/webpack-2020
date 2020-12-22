@@ -1,0 +1,40 @@
+@import '@/theme/variables.scss';
+
+.comment {
+    width: 711px;
+    font-family: $font-mont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.75);
+    display: flex;
+
+    &__media {
+        margin-right: 10px;
+    }
+    &__avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 32px;
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+        filter: drop-shadow(0px 10px 20px rgba(31, 32, 65, 0.1));
+        
+        margin-bottom: 12px;
+    }
+    &__content {
+        margin-right: 10px;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+    &__date {
+        margin-bottom: 10px;
+    }
+    &__text {}
+}

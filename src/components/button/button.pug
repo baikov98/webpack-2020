@@ -3,6 +3,7 @@
     options.purpletxt - по умолчанию белый, при true - фиолетовый
     options.arrow - добавляет стрелку при true
     options.disable - при true снижает opasity button
+    options.text - text кнопки
 include ../button-text/button-text
 
 mixin button(options)
@@ -18,6 +19,5 @@ mixin button(options)
 
     button(class= [arrow, disable]).button
         div(class= space)
-            +button-text({color: options.purpletxt})
-            //div(class= purpletxt).button__text CLICK ME
+            +button-text({color: options.purpletxt, text: options.text})
     

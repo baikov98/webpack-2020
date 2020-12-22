@@ -4,7 +4,7 @@ mixin footer-items(title, ...items)
         each item in items
             .footer__link-text
                 a.text-head-foot(href="#")= item
-include ../email-input/email-input
+include ../text-input/text-input
 include ../socials/socials
 .footer
     .footer__container
@@ -19,7 +19,7 @@ include ../socials/socials
             .footer__column
                 .text-bold-12.footer__bold-text подписка
                 .footer__disc Получайте специальные предложения и новости сервиса
-                +email-input({class:'footer__email'})
+                +text-input({type: 'email', class:'footer__email', placeholder: 'Email'})
 
     .footer__copyright
         .footer__copy-container

@@ -9,8 +9,8 @@
     box-sizing: border-box;
     border: 0;
     border-radius: 22px;
-    height: 44px;
-    width: 320px;
+    height: inherit;
+    width: inherit;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     outline: none;
     &_disabled {

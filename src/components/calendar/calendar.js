@@ -5,7 +5,7 @@ $(document).ready(function() {
     var timeNow = mostime();
     var yearNum = timeNow.getFullYear()
     var monthDiff = 0;
-    var stage = 0;
+
     //- получение даты по московскому времени
     function mostime(diff = 0) {
         var d = new Date()
@@ -26,15 +26,17 @@ $(document).ready(function() {
         } else return false
     }
 
-    function calDateGen(diff) {
-
+    function calDateGen(diff, id, stage) {
+        
+        var id = $(`#${id}`)
+        var stage = stage
         var firstDay = mostime(diff);
         firstDay.setDate(1)
         var beforeDays = [];
         var dayBefore = mostime(diff);
         dayBefore.setDate(1);
         var totalElems = 0;
-        $('.calendar__dates').empty()
+        id.find('.calendar__dates').empty()
         //- получаем массив объектов дат прошлого месяца
         if (firstDay.getDay() !== 1) {
              for (var i = 1; dayBefore.getDay() !== 1; i++) {
@@ -47,7 +49,7 @@ $(document).ready(function() {
         }
         //- даты прошлого месяца
         beforeDays.forEach(function(item, i, arr) {
-            $('.calendar__dates')
+            id.find('.calendar__dates')
             .append(`<div data-date="${item.getDate()}" data-month="${item.getMonth()}" data-year="${item.getFullYear()}" class="calendar__date calendar__other-month">${item.getDate()}</div>`);
             totalElems += 1
          })
@@ -56,7 +58,7 @@ $(document).ready(function() {
             var thisMthday = mostime(diff)
             thisMthday.setDate(i);
             if (thisMthday.getMonth() === firstDay.getMonth()) {
-            $('.calendar__dates')
+            id.find('.calendar__dates')
             .append(`<div data-date="${thisMthday.getDate()}" data-month="${thisMthday.getMonth()}" data-year="${thisMthday.getFullYear()}" class="calendar__date">${thisMthday.getDate()}</div>`);
             totalElems += 1}
         }
@@ -99,6 +101,7 @@ $(document).ready(function() {
                     if (dtMonth < 10) {dtMonth = '0' + dtMonth}
                     exit.val(`${dtDate}.${dtMonth}.${dtYear}`);
                     stage = 2;
+                    id.data('stage', stage)
                 }
                 //- дата прибытия больше даты отбытия
                 if (compareDates(arrData, dt)) {
@@ -118,11 +121,13 @@ $(document).ready(function() {
                     if (dtMonth < 10) {dtMonth = '0' + dtMonth}
                     arrive.val(`${dtDate}.${dtMonth}.${dtYear}`);
                     stage = 1;
+                    id.data('stage', stage)
                 }
             }
             if (stage === 0) {
                 stage = 1;
-                //var dt = $(this).data();
+                id.data('stage', stage)
+                
                 var arrive = $(this).parents('.calendar').find('.calendar__arrive-text');
                 
                 $(this).addClass('calendar__date_selected');
@@ -202,25 +207,29 @@ $(document).ready(function() {
         
         //- состояние: выбрана дата отбытия
         if (stage === 2) {
-            var dataobj = $('.calendar__exit-text').data()
-            var dataobj2 = $('.calendar__arrive-text').data() //- берем объект дата из инпута
-            $('.calendar__date').each(function(){
+            var dataobj = id.find('.calendar__exit-text').data()
+            var dataobj2 = id.find('.calendar__arrive-text').data() //- берем объект дата из инпута
+
+            id.find('.calendar__date').each(function(){
                 if ( (compareDates($(this).data(), dataobj2)) && (compareDates(dataobj, $(this).data())) ) {
                     $(this).addClass('calendar__in-range')
                 }
             })
-            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
+            id.find(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
             .addClass('calendar__date_selected calendar__range-to'); //- подсвечиваем дату отбытия
-            $(`.calendar__date[data-date='${dataobj2.date}'][data-month='${dataobj2.month}'][data-year='${dataobj2.year}']`)
+            id.find(`.calendar__date[data-date='${dataobj2.date}'][data-month='${dataobj2.month}'][data-year='${dataobj2.year}']`)
             .addClass('calendar__range-from');
         }
         //- состояние: выбрана дата прибытия
         if (stage >= 1) {
-            var dataobj = $('.calendar__arrive-text').data() //- берем объект дата из инпута
-            $(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
+            var dataobj = id.find('.calendar__arrive-text').data() //- берем объект дата из инпута
+            id.find(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
             .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
         }
-    }
+        
+        
+    } //end caldategen
+
     //- получить название месяца на русском по цифре
     function getMounthName(date) {
         var dateNum = date.getMonth();
@@ -228,37 +237,46 @@ $(document).ready(function() {
         return months[dateNum]
     }
     //- функция получает смещение (diff) от текущего месяца, заполняет calendar_month и вызывает calDateGen
-    function calTitle(diff) {
+    function calTitle(diff, id, stage) {
         var date = mostime(diff)
         var month = getMounthName(date);
         var year = date.getFullYear();
         $('.calendar__select').find('.calendar__month').empty();
         $('.calendar__select').find('.calendar__month').html(`${month}<br>${year}`);
-        calDateGen(diff);
+        calDateGen(diff, id, stage);
     }
     
     $('.calendar__select').data('year', String(yearNum))
 
     $('.calendar__arrive').click(function(){
             $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active'); 
+            var id = $(this).parents('.calendar').attr('id')
+            var stage = $(this).parents('.calendar').data('stage') || 0
+            console.log(stage)
             monthDiff = 0; 
-            calTitle(monthDiff)
+            calTitle(monthDiff, id, stage)
     },); 
 
     $('.calendar__exit').click(function(){
-            $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active');  
+            $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active');
+            var id = $(this).parents('.calendar').attr('id')
+            var stage = $(this).parents('.calendar').data('stage') || 0
             monthDiff = 0; 
-            calTitle(monthDiff)
+            calTitle(monthDiff, id, stage)
     },); 
 
     $('.calendar__prev').click(function(){
+            var id = $(this).parents('.calendar').attr('id')
+            var stage = $(this).parents('.calendar').data('stage') || 0
             monthDiff -= 1;
-            calTitle(monthDiff)
+            calTitle(monthDiff, id, stage)
     },); 
 
     $('.calendar__next').click(function(){
+            var id = $(this).parents('.calendar').attr('id')
+            var stage = $(this).parents('.calendar').data('stage') || 0
             monthDiff += 1;
-            calTitle(monthDiff)
+            calTitle(monthDiff, id, stage)
     },); 
     $('.calendar__apply').click(function(){
             $(this).parents('.calendar__select').removeClass('calendar__select_active');
@@ -277,5 +295,3 @@ $(document).ready(function() {
     })
 });
 
-
-    

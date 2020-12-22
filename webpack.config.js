@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-//const IonRangeSlider = require('ion-rangeslider')
+
 const webpack = require('webpack')
 
 
@@ -90,8 +90,7 @@ const plugins = () => {
         new CopyWebpackPlugin(
             [
                 { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
-                { from: path.resolve(__dirname, 'src/fsd/blocks/main-logo/main-logo.svg'), to: path.resolve(__dirname, 'dist') },
-                { from: path.resolve(__dirname, 'src/fsd/blocks/gray-logo/gray-logo.svg'), to: path.resolve(__dirname, 'dist') }
+                
             ]
         ),
         new MiniCssExtractPlugin({
@@ -154,7 +153,9 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']
+                //use: ['file-loader?name=/img/[name].[ext]'],
+                loader: 'file-loader?name=/img/[name].[ext]'
+                
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,

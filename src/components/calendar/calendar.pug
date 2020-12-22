@@ -1,25 +1,31 @@
-.calendar
-    .calendar__box
-        .calendar__arrive
-            input.calendar__arrive-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
-        .calendar__exit
-            input.calendar__exit-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
-    .calendar__select(data-year='2011', data-mounth='11')
-        nav.calendar__nav
-            .calendar__prev
-            .calendar__month Август<br>2020
-            .calendar__next
-        .calendar__content-box
-            .calendar__content
-                .calendar__week-days
-                    .calendar__week-day Пн
-                    .calendar__week-day Вт
-                    .calendar__week-day Ср
-                    .calendar__week-day Чт
-                    .calendar__week-day Пт
-                    .calendar__week-day Сб
-                    .calendar__week-day Вс
-                .calendar__dates
-        .calendar__buttons
-            .calendar__clear очистить
-            .calendar__apply применить
+//-   options.id -- id
+
+mixin calendar(options)
+    - if (!options) options = {}
+    - if (!options.id) options.id = 'calendar'
+
+    .calendar(id = options.id)
+        .calendar__box
+            .calendar__arrive
+                input.calendar__arrive-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
+            .calendar__exit
+                input.calendar__exit-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
+        .calendar__select(data-year='2011', data-mounth='11')
+            nav.calendar__nav
+                .calendar__prev
+                .calendar__month Август<br>2020
+                .calendar__next
+            .calendar__content-box
+                .calendar__content
+                    .calendar__week-days
+                        .calendar__week-day Пн
+                        .calendar__week-day Вт
+                        .calendar__week-day Ср
+                        .calendar__week-day Чт
+                        .calendar__week-day Пт
+                        .calendar__week-day Сб
+                        .calendar__week-day Вс
+                    .calendar__dates
+            .calendar__buttons
+                .calendar__clear очистить
+                .calendar__apply применить

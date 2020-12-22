@@ -1,5 +1,5 @@
 include ../menu/menu
-
+include ../button/button
 .header
     .header__container
         include ../main-logo/main-logo
@@ -10,7 +10,7 @@ include ../menu/menu
                         {name: 'Новости', class: '', href: '/news'},
                         {name: 'Соглашения', class: 'menu__item_arrow-down', href: '/vacancies'},])
             .login
-                .header__buttons
-                    button.button.button_notfill.login__button-in ВОЙТИ
-                .header__buttons
-                    button.button.login__button-reg ЗАРЕГИСТРИРОВАТЬСЯ
+                .header__button-in
+                    +button({space: true, purpletxt: true,  text: 'ВОЙТИ'})
+                .header__button-reg
+                    +button({space: false, purpletxt: false, text: 'ЗАРЕГИСТРИРОВАТЬСЯ'})

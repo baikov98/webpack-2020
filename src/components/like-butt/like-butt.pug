@@ -1,7 +1,8 @@
 //- 
     options.number кол-во лайков
     options.content - вид кнопки: favorite - активный, favorite_border - обычный
-    options.class - стиль кнопки в зависимости от content
+
+    -- options.class - стиль кнопки в зависимости от options.content
 
 
 mixin like-butt(options)
@@ -10,7 +11,8 @@ mixin like-butt(options)
             options.class_icon = 'like-butt__icon_active';
             options.class_butt = 'like-butt_active';
             options.class_num = 'like-butt__number_active';
-        } else {options.class = ''}
+        } else {options.class = ''
+                options.content = 'favorite_border'}
 
     .like-butt(class= options.class_butt)
         .like-butt__container

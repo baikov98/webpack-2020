@@ -4,6 +4,7 @@
     options.placeholder - плейсхолдер
     options.id - id
     options.istext - по умолчанию email, 'text' - 320px ширина и нет иконки
+    options.icon - отображение стрелки при true
 
 mixin text-input(options)
     - var icon = 'text-input__icon'
@@ -13,10 +14,10 @@ mixin text-input(options)
     -    icon = '';}
 
     .text-input(class= options.class)
-        input(  type= options.type
-                placeholder= options.placeholder
-                maxlength="70"
-                id= options.id
-                class= box320  ).text-input__box
-
-        div(class= icon)
+        .text-input__container
+            input(  type= options.type
+                    placeholder= options.placeholder
+                    maxlength="70"
+                    id= options.id
+                    class= box320  ).text-input__box
+            div(class= icon)
