@@ -1,6 +1,12 @@
 @import '@/theme/variables.scss';
 
 body {
-    
-    padding: 10px;
+    background-color: #E5E5E5;
+    padding: 0 13px;
+}
+
+.wrapper {
+    width: 1000px;
+    height: 1000px;
+    background-color: lawngreen;
 }

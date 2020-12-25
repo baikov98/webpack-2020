@@ -1,16 +1,29 @@
-include ../menu/menu
+mixin menu-items(options)
+    for item in options
+        a.text-head-foot.header__menu-item(href= `${item.href}` class= item.class)= item.name
+
 include ../button/button
-.header
-    .header__container
-        include ../main-logo/main-logo
-        .header__nav
-            +menu-items([{name: 'О нас', class: 'menu__item_current', href: '/about'}, 
-                        {name: 'Услуги', class: 'menu__item_arrow-down', href: '/services'},
-                        {name: 'Вакансии', class: '', href: '/vacancies'},
-                        {name: 'Новости', class: '', href: '/news'},
-                        {name: 'Соглашения', class: 'menu__item_arrow-down', href: '/vacancies'},])
-            .login
-                .header__button-in
-                    +button({space: true, purpletxt: true,  text: 'ВОЙТИ'})
-                .header__button-reg
-                    +button({space: false, purpletxt: false, text: 'ЗАРЕГИСТРИРОВАТЬСЯ'})
+
+mixin header(options)
+    - if (!options) {options = {}}
+    .header
+        .header__container
+            .header__main-logo
+                include ../main-logo/main-logo
+            .header__burger
+                span
+            nav.header__nav
+                +menu-items([{name: 'О нас', class: 'header__menu-item_current', href: '/about'}, 
+                            {name: 'Услуги', class: 'header__menu-item_arrow-down', href: '/services'},
+                            {name: 'Вакансии', class: '', href: '/vacancies'},
+                            {name: 'Новости', class: '', href: '/news'},
+                            {name: 'Соглашения', class: 'header__menu-item_arrow-down', href: '/vacancies'},])
+                
+                if (options.logged === true)
+                    .header__stick
+                    .text-head-foot.header__menu-item Юлий Цезарь
+                else
+                    .header__button-in.header__menu-item
+                        +button({space: true, purpletxt: true,  text: 'ВОЙТИ'})
+                    .header__button-reg.header__menu-item
+                        +button({space: false, purpletxt: false, text: 'ЗАРЕГИСТРИРОВАТЬСЯ'})

@@ -1,0 +1,17 @@
+extends ../../base
+block variables
+    - var pageTitle = 'Headers & Footers'
+    
+block content
+    include ../../components/header/header.pug
+    .head-foot__logo
+        include ../../components/gray-logo/gray-logo.pug
+    .head-foot__header
+        +header({logged: true})
+    .head-foot__header
+        +header({logged: false})
+    .head-foot__footer
+        include ../../components/footer/footer.pug
+    .head-foot__copy
+        include ../../components/copyright/copyright.pug
+    

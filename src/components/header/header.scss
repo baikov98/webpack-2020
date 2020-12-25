@@ -1,10 +1,9 @@
 
 .header {
     position: relative;
-    z-index: -2;
+   
     background-color: white;
     height: 70px;
-    margin-top: 140px;
     &__button-in {
         width: 87px;
         height: 34px;
@@ -15,11 +14,6 @@
         height: 34px;
     }
 
-    & + & {
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-    
     &__buttons {
         padding: 0 10px;
         &:last-child {
@@ -33,16 +27,41 @@
         justify-content: space-between;
         align-items: center;
         max-width: 1160px;
-        height: 70px;
-    }
-
-    &__logo {
-        margin-bottom: 58px;
+        height: inherit;
     }
 
     &__nav {
         display: flex;
         justify-content: flex-end;
+        
+    }
+    &__burger {
+        position: relative;
+        width: 40px;
+        height: 35px;
+        display: none;
+        margin: 0 10px;
+        
+        &::before, &::after, & span {
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            background: #515758;
+            margin: 0 auto;
+        }
+        &::before, &::after {
+            content: '';
+        }
+        &::before {
+            top: 5px;
+        }
+        & span {
+            top: 16px;
+        }
+        &::after {
+            bottom: 5px;
+        }
+        
     }
 
     &__stick {
@@ -50,5 +69,79 @@
         height: 30px;
         background: rgba(31, 32, 65, 0.1);
         margin: 0 20px 0 10px;
+        
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        
+        &-item {
+            display: flex;
+            padding: 0 10px;
+            align-items: center;
+            &:last-child {
+                padding: 0;
+            }
+            &_current {
+                color: rgba(31, 32, 65, 0.75);
+                font-weight: bold;
+            }
+    
+            &_arrow-down {
+                &::after{
+                    font-family: 'Material Icons';
+                    font-size: 24px;
+                    content: 'keyboard_arrow_down';
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .header__fixed-page {
+        overflow: hidden;
+    }
+    .header {
+        height: 60px;
+    }
+    .header__stick {
+        display: none;
+    }
+    .header__menu-item {
+        margin: 40px 0px 40px 33px;
+        font-size: 14px;
+    }
+    .header__nav {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        width: 100%;
+        left: -125%;
+        overflow: auto;
+        transition: all 0.4s ease;
+    }
+    .header__nav.open-menu {
+        left: 0;
+    }
+    .header__burger {
+        display: block;
+    }
+    .header__burger.open-menu span {
+        opacity:0; 
+        transition: 0.5s; 
+    }
+    .header__burger.open-menu::before {
+        transform: rotate(38deg);
+        top: 16px;
+        transition: 0.4s;
+    }
+    .header__burger.open-menu::after {
+        transform: rotate(-38deg);
+        bottom: 16px;
+        transition: 0.4s;
     }
 }

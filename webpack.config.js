@@ -78,15 +78,29 @@ const babelOptions = preset => {
 const plugins = () => {
     const base = [
         new HTMLWebpackPlugin({
+            filename: 'index.html',
             template: './index.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }       
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'head-foot.html',
+            template: './pages/head-foot/head-foot.pug',
             minify: {
                 collapseWhitespace: isProd
             }
                       
-        }),
-        //new HTMLWebpackPlugin(makeHtml('page')),
+        }),  
+        new HTMLWebpackPlugin({
+            filename: 'form-el.html',
+            template: './pages/form-el/form-el.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+                      
+        }), 
         new CleanWebpackPlugin(),
-        //new IonRangeSlider(),
         new CopyWebpackPlugin(
             [
                 { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
@@ -140,10 +154,6 @@ module.exports = {
                 use: cssLoaders()
             },
             {
-                test: /\.less$/,
-                use: cssLoaders('less-loader')
-            },
-            {
                 test: /\.s[ac]ss$/,
                 use: cssLoaders('sass-loader')
             },
@@ -152,14 +162,14 @@ module.exports = {
                 use: ['pug-loader']
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
-                //use: ['file-loader?name=/img/[name].[ext]'],
+                test: /\.(png|jpg|gif)$/,
+                
                 loader: 'file-loader?name=/img/[name].[ext]'
                 
             },
             {
-                test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                test: /\.(ttf|woff|svg|woff2|eot)$/,
+                use: ['file-loader?name=fonts/[name].[ext]']
             },
             {
                 test: /\.xml$/,

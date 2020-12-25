@@ -2,6 +2,9 @@ import { min } from 'lodash';
 import './range-slider.scss'
 
 $(document).ready(function () {
+
+    if ($('*').is('.range')) {
+    
     var min = 0
     var max = 20000;
     var input = $('.range__input-box')
@@ -10,23 +13,24 @@ $(document).ready(function () {
     var rangemax = $('.range__max');
     var rangemin = $('.range__min');
     var boxWidth = $('.range__cont').width()
-
+    console.log(rangeBoxOfs)
     function calc(pnum) {
-        return (Math.round(Math.round(((pnum-10) / (boxWidth))*max) / 100))*100
+        return (Math.round(Math.round(((pnum-rangeBoxX) / (boxWidth))*max) / 100))*100
     }
     function fillInput() {
         input.val(`${rangefrom}₽ - ${rangeto}₽`)
     }
     
-    
     $('.range__max').css( {'left': ''+(121 + rangeBoxX)+'px' } )
     $('.range__min').css( {'left': ''+(55 + rangeBoxX)+'px' } )
-
+    
     var maxpoint = $('.range__max').offset().left
     var minpoint = $('.range__min').offset().left
+
     var midbar = $('.range__bar')
     midbar.width(maxpoint - minpoint)
-    midbar.css( {'left': ''+(minpoint-3)+'px' } )
+    console.log(minpoint)
+    midbar.css( {'left': ''+(minpoint-rangeBoxX)+'px' } )
     var rangefrom = calc(minpoint)
     var rangeto = calc(maxpoint)
     fillInput()
@@ -47,9 +51,7 @@ $(document).ready(function () {
             fillInput()
             rangemax.css( {'left': ''+(maxpoint-rangeBoxX-5)+'px' } )
             midbar.width(maxpoint-minpoint)
-           
-        })
-        
+        }) 
     })
 
     $('.range__min').mousedown((e) => {
@@ -71,4 +73,5 @@ $(document).ready(function () {
             midbar.css( {'left': ''+(minpoint-rangeBoxX)+'px' } )
         })
     })
+}
 });
