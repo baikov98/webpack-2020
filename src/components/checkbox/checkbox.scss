@@ -1,17 +1,20 @@
 @import '@/theme/variables.scss';
 
 .checkbox {
+
     &__block {
         display: flex;
         padding: 5px 0;
     }
-    /* прячем input checkbox */
+
     &__checkbox {
         display: none;
     }
 
     &__label {
-        display: inline;
+        height: 20px;
+        display: inline-flex;
+        
         font-family: $font-mont;
         font-style: normal;
         font-weight: normal;
@@ -24,7 +27,7 @@
 
     &__check {
         z-index: 1;
-        top: 5px;
+        top: 5.5px;
         left: 7px;
         opacity: 0%;
         width: 6px;
@@ -54,7 +57,7 @@
     content: " ";
     color: #000;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 10px;
     text-align: center;
     text-indent: 0px;
     width: 20px;

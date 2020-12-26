@@ -1,3 +1,52 @@
+@import '@/theme/variables.scss';
+body {
+    background-color: white;
+}
 .form-el {
+    width: 1440px;
+
+    background-color: #ffffff;
+    &__checkboxes {
+        margin-bottom: 40px;
+    }
+    &__button {
+        height: 44px;
+        width: 99px;
+    }
+    &__lbut {
+        height: 44px;
+        width: 320px;
+    }
+    &__buttons-container {
+        display: grid;
+        grid-template-columns: 99px 99px;
+        column-gap: 20px;
+        row-gap: 30px;
+    }
+    &__text {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1F2041;
+        margin: 0;
+        margin-bottom: 15px;
+    }
     
+    &__container {
+        display: grid;
+        grid-template-columns: 320px 320px 320px;
+        column-gap: 72px;
+    }
+
+    &__text-field {
+        
+    }
+    &__text-field p {
+        margin: 0;
+        margin-bottom: 5px;
+        
+    }
 }

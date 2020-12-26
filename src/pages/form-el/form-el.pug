@@ -1,5 +1,50 @@
 extends ../../base
 block variables
     - var pageTitle = 'Form Elements'
-    
+    include ../../components/text-input/text-input
+    include ../../components/checkbox/checkbox
+    include ../../components/range-slider/range-slider
+    include ../../components/radio-but/radio-but
+    include ../../components/button/button
+    include ../../components/button-text/button-text
+    include ../../components/toggle-but/toggle-but
 block content
+    .form-el
+        .form-el__container
+            .form-el__text-field 
+                +text-input({type: 'text', placeholder: 'Email', text: 'Text Field'})
+            .form-el__checkboxes
+                p.form-el__text checkbox
+                +checkbox({title: 'Можно курить', id: '1'})
+                +checkbox({title: 'Можно с питомцами', id: '2'})
+                +checkbox({title: 'Можно пригласить гостей (до 10 человек)', id: '3'})
+            .form-el__range
+                +range({text: 'Range Slider'})
+            .form-el__text-field 
+                +text-input({type: 'email', placeholder: 'Email', isemail: 'email', text: 'Text Field'})
+            .form-el__radio
+                +radio-but({text: 'Radio Buttons', name: 'sex', 
+                            items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
+                                    {id: 'radio-woman', title: 'Женщина'}, 
+                                        ]})
+            
+            .form-el__buttons
+                p.form-el__text buttons
+                .form-el__buttons-container
+                    .form-el__button
+                        +button({space: false, arrow: false, purpletxt: false})
+                    .form-el__button
+                        +button({space: false, arrow: false, purpletxt: false, disable: true})
+                    .form-el__button
+                        +button({space: true, arrow: false, purpletxt: true})
+                    .form-el__button
+                        +button({space: true, arrow: false, purpletxt: true, disable: true})
+                    +button-text({color: 'purple'})
+                    +button-text({color: 'black'})
+                    .form-el__lbut
+                        +button({space: false, arrow: true, purpletxt: false, text: 'перейти к оплате'})
+            +text-input({type: 'text', placeholder: 'Email', text: 'Masked Text Field', mask: true})
+            +toggle-but({title: 'получать спецпредложения', id: '1'})
+           
+                
+            

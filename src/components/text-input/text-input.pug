@@ -1,23 +1,29 @@
 //- 
     options.class - классы для элемента
+    options.text
     options.type - поле type
     options.placeholder - плейсхолдер
     options.id - id
-    options.istext - по умолчанию email, 'text' - 320px ширина и нет иконки
+    options.isemail - по умолчанию text, при 'email' - 267px ширина и иконка
+    options.masked - режим masked date field
     options.icon - отображение стрелки при true
 
 mixin text-input(options)
-    - var icon = 'text-input__icon'
-    - var box320 = ''
-    - if (options.istext === 'text') {
-    -    box320 = 'text-input__w320';
-    -    icon = '';}
+    - let icon = ''
+    - let box320 = 'text-input__w320'
+    - let mask = ''
+    - let pls = options.placeholder
+    - if (options.isemail === 'email') {
+    -    box320 = '';
+    -    icon = 'text-input__icon';}
+    - if (options.mask) { mask = 'masked-t-field'; pls = 'ДД.ММ.ГГГГ'}
 
     .text-input(class= options.class)
+        p.text-input__text= options.text
         .text-input__container
             input(  type= options.type
-                    placeholder= options.placeholder
+                    placeholder= pls
                     maxlength="70"
                     id= options.id
-                    class= box320  ).text-input__box
+                    class= [box320, mask] ).text-input__box
             div(class= icon)

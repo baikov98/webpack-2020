@@ -6,5 +6,6 @@ mixin button-text(options)
     - if (!options) {options = {}}
     - let text = options.text ? options.text : 'CLICK ME'
     - let color = options.color ? 'button-text_purple' : ''
+    - if (options.color === 'black') { color = 'button-text_black'}
 
     .button-text(class= color)= text

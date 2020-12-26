@@ -1,9 +1,21 @@
 @import '@/theme/variables.scss';
 
 .radio-but {
-    display: inline-flex;
+    
     margin-right: 20px;
-
+    &__container {
+        display: inline-flex;
+    }
+    &__text {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1F2041;
+        margin-bottom: 16px;
+    }
     &__input {
         display: none;
     }
@@ -19,7 +31,7 @@
         color: rgba(31, 32, 65, 0.75);
         cursor: pointer;
         position: relative;
-        
+        margin-right: 20px;
         &::before {
             content: '';
             color: #000;

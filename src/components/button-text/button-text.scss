@@ -8,8 +8,11 @@
     font-size: 12px;
     line-height: 15px;
     color: white;
-
+    text-transform: uppercase;
     &_purple {
         color: #BC9CFF;
+    }
+    &_black {
+        color: rgba(31, 32, 65, 0.5);
     }
 }

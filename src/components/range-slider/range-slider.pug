@@ -1,12 +1,13 @@
+//-
+    options.text - title text
 
-
-input(type="text" id="range-slider" name="range-slider" value="")
-
-
-.range
-    .range__input
-        input(type="text" readonly).range__input-box
-    .range__cont
-        .range__min(draggable="false")
-        .range__bar
-        .range__max(draggable="false")
+mixin range(options)
+    - if (!options) {options = {}}
+    .range
+        .range__input
+            p.range__text= options.text
+            input(type="text" readonly).range__input-box
+        .range__cont
+            .range__min(draggable="false")
+            .range__bar
+            .range__max(draggable="false")

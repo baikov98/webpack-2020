@@ -21,8 +21,8 @@ $(document).ready(function () {
         input.val(`${rangefrom}₽ - ${rangeto}₽`)
     }
     
-    $('.range__max').css( {'left': ''+(121 + rangeBoxX)+'px' } )
-    $('.range__min').css( {'left': ''+(55 + rangeBoxX)+'px' } )
+    $('.range__max').css( {'left': ''+(130)+'px' } )
+    $('.range__min').css( {'left': ''+(65)+'px' } )
     
     var maxpoint = $('.range__max').offset().left
     var minpoint = $('.range__min').offset().left

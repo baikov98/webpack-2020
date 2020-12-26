@@ -2,65 +2,7 @@ extends base
 block variables
     - var pageTitle = 'Headers & Footers'
 block content
-    //- include components/masked-t-field/masked-t-field
-    //- +masked-t-field()
-
-    include components/calendar/calendar
-    +calendar({id : 'cal1'})
-    //- include components/calendar-filter/calendar-filter
-    include components/toggle-but/toggle-but
-    include components/dropdown-room/dropdown-room
-    include components/bullet-list/bullet-list
-    include components/exp-check-list/exp-check-list
-    include components/like-butt/like-butt
-    include components/rating-star/rating-star
-    include components/rich-checkbox/rich-checkbox
-    //-
-        +dropdown-room({values: [1, 2, 3]})
-        +rich-checkbox({title: 'Широкий коридор', id: 'wide_coridor', text: 'Ширина коридоров в номере не менее 91 см.'})
-        +exp-check-list({name: 'expandable checkbox list', items: [{id: 'breakfast', title: 'Завтрак'},
-                                                {id: 'writingdesk', title: 'Письменный стол'},
-                                                {id: 'feedingdesk', title: 'Стул для кормления'},
-                                                {id: 'bed', title: 'Кроватка'},
-                                                {id: 'tv', title: 'Телевизор'},
-                                                {id: 'shampoo', title: 'Шампунь'},
-                                                {id: 'tv2', title: 'Телевизор'},
-                                                {id: 'shampoo2', title: 'Шампунь'},
-                                                ]})
-        +toggle-but({title: 'Получать спецпредложения', id: 'spec-offer'})
-        +radio-but({name: 'sex', items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
-                                        {id: 'radio-woman', title: 'Женщина'}, 
-                                        ]})
-
-        +like-butt({number: '12', content: 'favorite_border'})
-        +rating-star({rating: 3})
-        +bullet-list([  'Нельзя с питомцами', 
-                        'Без вечеринок и мероприятий', 
-                        'Время прибытия — после 13:00, а выезд до 12:00' ])
-                        
-        +dropdown-room({preset: 'guest', values: [1, 2, 3]})
-        include components/pagination/pagination
-
-    //- include components/benefits-desc/benefits-desc
-    //- +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены'})
-    //- +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален'})
-    //- .ber(style='display:flex;')
-    //- include components/footer/footer.pug
-    include components/header/header.pug
-    //- include components/header/header-logged.pug
-    include components/footer/footer.pug
-    //- include components/copyright/copyright.pug
-
-    include components/text-input/text-input
-   
-    include components/button/button
-    +button({space: false, arrow: false, purpletxt: false, disable: false})
-
-    include components/range-slider/range-slider
-
-    +calendar({id : 'cal2'})
-    include components/comment/comment
-    +header()
+    
 
         
         
