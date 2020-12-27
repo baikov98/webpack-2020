@@ -13,8 +13,10 @@
     width: inherit;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     outline: none;
+    cursor: pointer;
     &_disabled {
       background: linear-gradient(180deg, rgba(188, 156, 255, 0.5) 0%, rgba(139, 164, 249, 0.5) 100%);
+      cursor: default;
     }
 
     &__text {

@@ -10,6 +10,7 @@
     list-style-type: none;
     width: 240px;
     position: relative;
+    margin-bottom: 10px;
     &::before {
         top: 7px;
         left: -20px;
@@ -19,5 +20,11 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
+    }
+    &:last-child {
+        margin: 0;
+    }
+    &__ul {
+        padding-left: 20px;
     }
 }

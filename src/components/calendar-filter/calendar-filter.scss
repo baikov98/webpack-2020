@@ -5,13 +5,20 @@
     position: relative;
     &__box {
         width: 266px;
-        display: flex;
-        
-        align-items: center;
         font-size: 14px;
         line-height: 24px;
         color: rgba(31, 32, 65, 0.75);
-        height: 44px;  
+        position: relative;
+    }
+    &__title {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1F2041;
+        margin-bottom: 5px;
     }
 
     &__select {
@@ -21,7 +28,8 @@
         box-sizing: border-box;
         box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
         border-radius: 4px;
-        position: fixed;
+        position: absolute;
+        top: 63px;
         display: none;
         z-index: 100;
         &_active {
@@ -186,12 +194,21 @@
         display: flex;
         align-items: center;
         border: 1px solid rgba(31, 32, 65, 0.25);
-        border-right: none;
         box-sizing: border-box;
-        border-radius: 4px 0px 0px 4px;
+        border-radius: 4px;
         background: #FFFFFF;
         color: rgba(31, 32, 65, 0.75);
         position: relative;
+        width: 266px;
+        &::after{
+            top: 10px;
+            right: 10px;
+            position: absolute;
+            font-family: 'Material Icons';
+            font-size: 24px;
+            content: 'keyboard_arrow_down';
+            color: rgba(31, 32, 65, 0.5);
+        }
     }
     &__exit-text {
         height: 44px;

@@ -1,11 +1,13 @@
 //-
     options.preset - пресет, по умолчанию room, для гостей - guest
     options.values - массив начальных значений дропдауна
+    options.title - заголовок
 
 
 mixin dropdown-room(options)
-
+    - if (!options.values) {options.values = [0,0,0]}
     .dropdown__box(data-preset= options.preset)
+        .drop__title= options.title
         .drop__text-box
             input(type="text" readonly).drop__text-field
         .drop__menu

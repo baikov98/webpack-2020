@@ -1,7 +1,7 @@
 @import '@/theme/variables.scss';
 
 .comment {
-    width: 711px;
+    
     font-family: $font-mont;
     font-style: normal;
     font-weight: normal;
@@ -36,5 +36,7 @@
     &__date {
         margin-bottom: 10px;
     }
-    &__text {}
+    &__text {
+        width: 660px;
+    }
 }

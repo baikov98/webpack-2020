@@ -1,11 +1,23 @@
 @import '@/theme/variables.scss';
 body {
     background-color: white;
+    height: 3000px;
 }
 .form-el {
     width: 1440px;
+    margin: auto;
+    background-color: red;
 
-    background-color: #ffffff;
+    &__container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: 320px 320px 320px;
+        grid-template-rows: 200px;
+        grid-auto-rows: minmax(100px, auto);
+        width: 1104px;
+        column-gap: 72px;
+        margin-top: 65px;
+    }
     &__checkboxes {
         margin-bottom: 40px;
     }
@@ -35,11 +47,7 @@ body {
         margin-bottom: 15px;
     }
     
-    &__container {
-        display: grid;
-        grid-template-columns: 320px 320px 320px;
-        column-gap: 72px;
-    }
+    
 
     &__text-field {
         
@@ -49,4 +57,26 @@ body {
         margin-bottom: 5px;
         
     }
+    &__pagination {
+        margin-top: 40px;
+     }
+    &__like-but {
+        display: flex;
+    }
+    &__like-but .like-butt {
+        margin-right: 10px;
+    }
+    &__bullet-text {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1F2041;
+    }
+}
+
+.form-el__toggle .toggle-but {
+    margin-bottom: 10px;
 }

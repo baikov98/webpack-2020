@@ -2,6 +2,7 @@
     options.iconName имя иконки Material Icons
     options.title - заголовок
     options.text - текст
+    options.hr - линия под контентом
 
 
 mixin benefits-desc(options)
@@ -12,4 +13,5 @@ mixin benefits-desc(options)
             .benefits-desc__block
                 .benefits-desc__title= options.title
                 .benefits-desc__text= options.text
-        .benefits-desc__hr
+        if (options.hr)
+            .benefits-desc__hr

@@ -8,43 +8,120 @@ block variables
     include ../../components/button/button
     include ../../components/button-text/button-text
     include ../../components/toggle-but/toggle-but
+    include ../../components/calendar/calendar
+    include ../../components/like-butt/like-butt
+    include ../../components/calendar-filter/calendar-filter
+    include ../../components/dropdown-room/dropdown-room
+    include ../../components/rating-star/rating-star
+    include ../../components/exp-check-list/exp-check-list
+    include ../../components/rich-checkbox/rich-checkbox
+    include ../../components/bullet-list/bullet-list
+    include ../../components/benefits-desc/benefits-desc
+    include ../../components/comment/comment
 block content
     .form-el
+        include ../../components/gray-logo/gray-logo.pug
+        
         .form-el__container
             .form-el__text-field 
-                +text-input({type: 'text', placeholder: 'Email', text: 'Text Field'})
+                +text-input({type: 'text', placeholder: 'Email', text: 'Text Field', id: 'txtinput1'})
             .form-el__checkboxes
-                p.form-el__text checkbox
+                p.form-el__text checkbox buttons
                 +checkbox({title: 'Можно курить', id: '1'})
                 +checkbox({title: 'Можно с питомцами', id: '2'})
                 +checkbox({title: 'Можно пригласить гостей (до 10 человек)', id: '3'})
             .form-el__range
                 +range({text: 'Range Slider'})
             .form-el__text-field 
-                +text-input({type: 'email', placeholder: 'Email', isemail: 'email', text: 'Text Field'})
+                +text-input({type: 'text', placeholder: 'Email', text: 'Text Field', id: 'txtinput2', value: 'This is pretty awesome'})
             .form-el__radio
                 +radio-but({text: 'Radio Buttons', name: 'sex', 
                             items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
                                     {id: 'radio-woman', title: 'Женщина'}, 
                                         ]})
-            
             .form-el__buttons
                 p.form-el__text buttons
                 .form-el__buttons-container
                     .form-el__button
-                        +button({space: false, arrow: false, purpletxt: false})
+                        +button({value: '1337', name: 'clk897'})
                     .form-el__button
-                        +button({space: false, arrow: false, purpletxt: false, disable: true})
+                        +button({value: '1337', name: 'clk895', disable: true})
                     .form-el__button
-                        +button({space: true, arrow: false, purpletxt: true})
+                        +button({value: '1337', name: 'clk894', space: true, purpletxt: true})
                     .form-el__button
-                        +button({space: true, arrow: false, purpletxt: true, disable: true})
+                        +button({value: '1337', name: 'clk893', space: true, purpletxt: true, disable: true})
                     +button-text({color: 'purple'})
                     +button-text({color: 'black'})
                     .form-el__lbut
-                        +button({space: false, arrow: true, purpletxt: false, text: 'перейти к оплате'})
+                        +button({arrow: true, text: 'перейти к оплате'})
+            .form-el__dropdown-guest
+                +dropdown-room({preset: 'guest', title: 'Dropdown'})
+            .form-el__toggle
+                p.form-el__text Toggle
+                +toggle-but({title: 'Получать спецпредложения', id: '12'})
+                +toggle-but({title: 'Получать спецпредложения', id: '13', checked: 'checked'})
+            .form-el__pagination
+                p.form-el__text Pagination
+                include ../../components/pagination/pagination
+            p
+            .form-el__like-but
+                +like-butt({number: 2})
+                +like-butt({number: 12, content: 'favorite'})
+            p
             +text-input({type: 'text', placeholder: 'Email', text: 'Masked Text Field', mask: true})
-            +toggle-but({title: 'получать спецпредложения', id: '1'})
+            .form-el__rating
+                p.form-el__text rate button
+                +rating-star({rating: '4'})
+                +rating-star({rating: '5'})
+            p
+            .form-el__date-dropdown
+                +calendar({id: 'cal34', title1: 'date dropdown', title2: 'date dropdown'})
+            p
+            p
+            .form-el__calendar-filter
+                +calendarFilter({id: 'filter44', title: 'filter date dropdown'})
+            p
+            p
+            .form-el__text-field 
+                +text-input({type: 'email', placeholder: 'Email', isemail: 'email', text: 'subscription text field'})
+            p
+            p
+            .form-el__dropdown-room
+                +dropdown-room({ title: 'Dropdown', values: [2,2,0]})
+            .form-el__dropdown-room
+                +dropdown-room({preset: 'guest', title: 'Dropdown'})
+            .form-el__dropdown-room
+                +dropdown-room({preset: 'guest', title: 'Dropdown', values: [2,1,0]})
+            .form-el__exp-check-list
+                +exp-check-list({name: 'expandable checkbox list',
+                                items: [{id: 'ch1', title: 'Завтрак'},
+                                        {id: 'ch2', title: 'Письменный стол', checked: true},
+                                        {id: 'ch3', title: 'Стул для кормления', checked: true},
+                                        {id: 'ch4', title: 'Кроватка', checked: true},
+                                        {id: 'ch5', title: 'Телевизор'},
+                                        {id: 'ch6', title: 'Шампунь'},
+                                        {id: 'ch7', title: 'Телевизор'},
+                                        {id: 'ch8', title: 'Шампунь'}]})
+            .form-el__rich-checkbox
+                +rich-checkbox({name: 'rich Checkbox Buttons', items:
+                                [{title: 'Широкий коридор', text: 'Ширина коридоров в номере не менее 91 см.', id: 'rich1'},
+                                 {title: 'Помощник для инвалидов', text: 'На 1 этаже вас встретит специалист  и проводит до номера.', id: 'rich2'}]})
+            
+            .form-el__bullet
+                .form-el__bullet-text bullet list
+                +bullet-list(['Нельзя с питомцами', 
+                              'Без вечеринок и мероприятий', 
+                              'Время прибытия — после 13:00, а выезд до 12:00'])
+            .form-el__benefits
+                +benefits-desc({iconName: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены', hr: true})
+                +benefits-desc({iconName: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален', hr: true})
+            .from-el__comment
+                +comment({name: 'Мурад Сарафанов', date: '5 дней назад', 
+                          text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
+                          number: 12, content: 'favorite', img: 'comment.png', alt: 'com'})
+        
+            
+
            
                 
             

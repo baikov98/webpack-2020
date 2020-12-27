@@ -2,10 +2,11 @@
     options.title - текст чекбокса
     options.id - id чекбокса
     options.tclass - доп. класс для title
+    options.checked - отмечен ли чекбокс
 
 mixin checkbox(options)
     .checkbox__block
-        input(type="checkbox" id= options.id).checkbox__checkbox
+        input(type="checkbox" id= options.id checked= options.checked).checkbox__checkbox
         label(for= options.id class= options.tclass).checkbox__label= options.title
             .checkbox__check
                 .checkbox__check-in

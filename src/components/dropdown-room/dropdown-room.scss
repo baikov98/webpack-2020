@@ -2,15 +2,22 @@
 
 
 .dropdown__box {
-    display: flex;
-    align-items: center;
+    
     font-size: 14px;
     line-height: 24px;
     color: rgba(31, 32, 65, 0.75);
-    height: 44px;
     position: relative;
 }
-
+.drop__title {
+    font-family: $font-mont-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #1F2041;
+    margin-bottom: 5px;
+}
 .drop__text-box {
     display: flex;
     align-items: center;
@@ -53,7 +60,7 @@
     width: 266px;
     display: none;
     position: absolute;
-    top: 42px;
+    top: 63px;
     background: #FFFFFF;
     border: 1px solid rgba(31, 32, 65, 0.5);
     border-radius: 0 0 4px 4px;

@@ -1,4 +1,6 @@
 //-   options.id -- id
+      options.title1 - первый title
+      options.title2 - второй title
 
 mixin calendar(options)
     - if (!options) options = {}
@@ -6,10 +8,14 @@ mixin calendar(options)
 
     .calendar(id = options.id)
         .calendar__box
-            .calendar__arrive
-                input.calendar__arrive-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
-            .calendar__exit
-                input.calendar__exit-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
+            .calendar__date-input
+                .calendar__input-title-1= options.title1
+                .calendar__arrive
+                    input.calendar__arrive-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
+            .calendar__date-input
+                .calendar__input-title-2= options.title2
+                .calendar__exit
+                    input.calendar__exit-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
         .calendar__select(data-year='2011', data-mounth='11')
             nav.calendar__nav
                 .calendar__prev

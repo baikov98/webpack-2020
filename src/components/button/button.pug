@@ -4,6 +4,9 @@
     options.arrow - добавляет стрелку при true
     options.disable - при true снижает opasity button
     options.text - text кнопки
+    options.value - значение кнопки
+    options.name - уникальное имя кнопки
+
 include ../button-text/button-text
 
 mixin button(options)
@@ -17,7 +20,7 @@ mixin button(options)
     -    if (options.purpletxt) {purpletxt ='button__text_purpletxt'}
     -    if (options.disable) {disable ='button_disabled'}
 
-    button(class= [arrow, disable]).button
+    button(class= [arrow, disable], value= options.value, name= options.name).button
         div(class= space)
             +button-text({color: options.purpletxt, text: options.text})
     

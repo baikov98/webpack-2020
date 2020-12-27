@@ -1,11 +1,17 @@
 //-
-    options.text - текст под чекбоксом
-    options.title - заголовок чекбокса
-    options.id - id чекбокса
+    options.name - заголовок группы чекбоксов
+    options.items - [] - массив с данными чекбоксов 
+    --
+    options.items.text - текст под чекбоксом
+    options.items.title - заголовок чекбокса
+    options.items.id - id чекбокса
+    options.items.checked - checked чекбокса
 
 include ../checkbox/checkbox
 
 mixin rich-checkbox(options)
-    .rich-checkbox
-        +checkbox({title : options.title, id : options.id, tclass: 'rich-checkbox_bold' })
-        .rich-checkbox__text= options.text
+    .rich-checkbox__name= options.name
+    for item in options.items
+        .rich-checkbox
+            +checkbox({title : item.title, id : item.id, tclass: 'rich-checkbox_bold', checked: item.checked })
+            .rich-checkbox__text= item.text
