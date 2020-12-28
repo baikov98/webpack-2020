@@ -1,0 +1,40 @@
+@import '@/theme/variables.scss';
+
+
+.room-num {
+    display: flex;
+    justify-content: space-between;
+
+    &__num {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 23px;
+        color: #1F2041;
+    }
+    &__num span {
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #BC9CFF;
+        margin-left: 1px;
+        
+    }
+    &__price {
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba(31, 32, 65, 0.5);
+        vertical-align: bottom;
+        align-self: center;
+    }
+    &__price span {
+        font-weight: bold;
+    }
+}

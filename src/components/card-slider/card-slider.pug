@@ -6,6 +6,7 @@
     options.rew - кол-во отзывов
 
 include ../rating-star/rating-star
+include ../room-num/room-num
 
 mixin card-slider(options)
     - let num = '№ ' + options.num
@@ -17,14 +18,9 @@ mixin card-slider(options)
                 - let image = 'img/' + item
                 div: img(src= image, alt="").card-slider__image
         .card-slider__content
-            .card-slider__num= num
-                if options.lycs
-                    span люкс
-            .card-slider__price <span>#{price}</span> в сутки
+            +room-num({num: 898, price: 9890, lycs: true})
         .card-slider__hr
         .card-slider__rating
             +rating-star({rating: '4'})
             .card-slider__reviews <span>#{rew}</span> Отзывов
-                
-
             

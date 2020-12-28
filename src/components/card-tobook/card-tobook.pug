@@ -1,4 +1,34 @@
+//- 
+    options.prices - массив с массивами услуг, суток и цен ['9999', '3', true, '38993']
+                                                        цена   сутки  иконка  сумма
 
+include ../room-num/room-num.pug
+include ../button/button.pug
 
-.card-tobook
-    .card-tobook__container
+mixin card-tobook(options)
+    - if (!options.prices) {options.prices = []}
+    .card-tobook(data-price= options.price data-addprices= options.adserve+options.addcost data-days= options.days)
+        .card-tobook__container
+            +room-num({num: 867, price: options.price, lycs: true})
+            .card-tobook__cal
+                +calendar({id: 'cal3443', title1: 'прибытие', title2: 'выезд'})
+            .card-tobook__drop
+                +dropdown-room({preset: 'guest', title: 'гости', values: [3, 2, 0]})
+            .card-tobook__prices
+                .card-tobook__cost_main <span>#{options.price}</span>₽ х #{options.days} суток
+                p
+                .card-tobook__money-sum <span>39 960</span>₽
+            .card-tobook__prices
+                .card-tobook__cost Сбор за услуги: скидка 2 179₽
+                .card-tobook__i i
+                .card-tobook__money #{options.adserve}₽
+            .card-tobook__prices
+                .card-tobook__cost Сбор за дополнительные услуги
+                .card-tobook__i i
+                .card-tobook__money #{options.addcost}₽
+            .card-tobook__result
+                .card-tobook__restext Итого
+                .card-tobook__dash
+                .card-tobook__sum <span>38 081</span>₽
+            .card-tobook__button
+                +button({arrow: true, text: 'забронировать'})

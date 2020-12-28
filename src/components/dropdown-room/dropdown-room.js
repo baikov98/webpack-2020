@@ -17,9 +17,12 @@ $(document).ready(() => {
             var babytext = 'младенцев';
             $(ctx).parents('.drop__menu').find('.item__value').each(function(index, value){
                 if (!($(this).parents('.item__calc').siblings('.item__text').text() === 'младенцы')) {
-                num += Number($(this).text()) } else 
+                num += Number($(this).text()) } 
+                else 
                 { baby += Number($(this).text()) }
             })
+            $(ctx).parents('.dropdown__box').data('sum', num)
+            console.log($(ctx).parents('.dropdown__box').data())
             var inner;
             var babyinner = '';
             if (num === 1) {numtext = 'гость'};
@@ -131,7 +134,7 @@ $(document).ready(() => {
     })
 
     //заполнение поля при загрузке
-    $('.item__value').each(function(){
+    $('.item__value').each(function(i, val){
         filltext(this)
     })
     
@@ -144,4 +147,5 @@ $(document).ready(() => {
         }
         return result;
     }
+
   }); 

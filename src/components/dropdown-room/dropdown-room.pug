@@ -8,10 +8,10 @@
 mixin dropdown-room(options)
     - if (!options.values) {options.values = [0,0,0]}
 
-    .dropdown__box(data-preset= options.preset)
+    .dropdown__box(data-preset= options.preset id= options.id )
         .drop__title= options.title
         .drop__text-box
-            input(type="text" readonly id= options.id).drop__text-field
+            input(type="text" readonly ).drop__text-field
         .drop__menu
             .item 
                 .item__text спальни

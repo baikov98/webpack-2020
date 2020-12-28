@@ -1,3 +1,5 @@
+@import '@/theme/variables.scss';
+
 .card-tobook {
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -6,7 +8,68 @@
     border-radius: 4px;
     width: 380px;
     height: 511px;
+    display: flex;
+    justify-content: center;
     &__container {
+        margin-top: 30px;
         width: 320px;
+    }
+    &__cal {
+        margin-top: 20px;
+    }
+    &__drop {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    &__prices {
+        display: grid;
+        grid-template-columns: 220px 20px 80px;
+        margin-top: 10px;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75)
+    }
+
+    &__money, &__money-sum {
+        text-align: end;
+    }
+    &__i {
+        font-weight: bold;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        color: rgba(31, 32, 65, 0.25);
+        box-sizing: border-box;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: baseline;
+    }
+
+    &__result {
+        display: flex;
+        margin-top: 30px;
+    }
+    &__restext, &__sum {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 23px;
+        color: #1F2041;
+    }
+    &__dash {
+        flex-grow: 1;
+        border-bottom: 1px dashed rgba(31, 32, 65, 0.25);
+        box-sizing: border-box;
+    }
+    &__button {
+        margin-top: 20px;
+        width: 320px;
+        height: 44px;
     }
 }

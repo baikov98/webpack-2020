@@ -5,6 +5,8 @@ $(document).ready(function() {
     var timeNow = mostime();
     var yearNum = timeNow.getFullYear()
     var monthDiff = 0;
+    var arrDate,
+        exDate;
 
     //- получение даты по московскому времени
     function mostime(diff = 0) {
@@ -94,12 +96,16 @@ $(document).ready(function() {
                     exit.data('date', dtDate);
                     exit.data('month', dtMonth);
                     exit.data('year', dtYear);
-                    
+
+                    exDate = new Date(dtYear, dtMonth, dtDate)
+                    var dateDiff = (exDate - arrDate) / 86400000
+                    $(this).parents('.calendar').data('diff', dateDiff)
+
                     dtMonth += 1;
-                    
                     if (dtDate < 10) {dtDate = '0' + dtDate}
                     if (dtMonth < 10) {dtMonth = '0' + dtMonth}
                     exit.val(`${dtDate}.${dtMonth}.${dtYear}`);
+                    
                     stage = 2;
                     id.data('stage', stage)
                 }
@@ -115,7 +121,7 @@ $(document).ready(function() {
                     arrive.data('date', dtDate);
                     arrive.data('month', dtMonth);
                     arrive.data('year', dtYear);
-                    
+                    arrDate = new Date(dtYear, dtMonth, dtDate)
                     dtMonth += 1;
                     if (dtDate < 10) {dtDate = '0' + dtDate}
                     if (dtMonth < 10) {dtMonth = '0' + dtMonth}
@@ -138,6 +144,7 @@ $(document).ready(function() {
                 arrive.data('date', dtDate);
                 arrive.data('month', dtMonth);
                 arrive.data('year', dtYear);
+                arrDate = new Date(dtYear, dtMonth, dtDate)
                 dtMonth += 1;
                 if (dtDate < 10) {dtDate = `0${dtDate}`}
                 if (dtMonth < 10) {dtMonth = `0${dtMonth}`}
@@ -207,6 +214,8 @@ $(document).ready(function() {
         
         //- состояние: выбрана дата отбытия
         if (stage === 2) {
+            
+
             var dataobj = id.find('.calendar__exit-text').data()
             var dataobj2 = id.find('.calendar__arrive-text').data() //- берем объект дата из инпута
 
@@ -252,7 +261,6 @@ $(document).ready(function() {
             $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active'); 
             var id = $(this).parents('.calendar').attr('id')
             var stage = $(this).parents('.calendar').data('stage') || 0
-            console.log(stage)
             monthDiff = 0; 
             calTitle(monthDiff, id, stage)
     },); 

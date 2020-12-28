@@ -1,0 +1,14 @@
+//- 
+    options.lycs - люкс
+    options.num - номер номера
+    options.price - цена
+
+mixin room-num(options)
+    - let num = options.num ? '№ ' + options.num : ''
+    - let price = options.price ? options.price + '₽' : ''
+
+    .room-num
+        .room-num__num= num
+            if options.lycs
+                span люкс
+        .room-num__price <span>#{price}</span> в сутки

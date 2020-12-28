@@ -1,3 +1,8 @@
+//- 
+    options.title - title карточки
+    options.buttext - текст кнопки
+    options.calid - calendar id
+
 
 include ../../components/calendar/calendar
 include ../../components/button/button
@@ -12,8 +17,8 @@ mixin card-select(options)
         .card-select__container
             .card-select__title= title
             .card-select__cal
-                +calendar({id: 'cal34', title1: 'прибытие', title2: 'выезд'})
+                +calendar({id: options.calid, title1: 'прибытие', title2: 'выезд'})
             .card-select__drop
-                +dropdown-room({preset: 'guest', title: 'гости'})
+                +dropdown-room({preset: 'guest', title: 'гости', values: options.values, id: options.dropid})
             .card-select__button
                 +button({arrow: true, text: buttext})

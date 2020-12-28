@@ -1,0 +1,1 @@
+import './card-reg.scss'

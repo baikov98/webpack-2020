@@ -1,0 +1,26 @@
+include ../text-input/text-input
+include ../radio-but/radio-but
+include ../toggle-but/toggle-but
+
+mixin card-reg(options)
+    .card-reg
+        .card-reg__container
+            .card-reg__title Регистрация аккаунта
+            +text-input({type: 'text', placeholder: 'Имя'})
+            +text-input({type: 'text', placeholder: 'Фамилия'})
+            +radio-but({ name: 'sex', 
+                            items: [{id: 'radio-man', title: 'Мужчина', checked: 'checked'},
+                                    {id: 'radio-woman', title: 'Женщина'}, 
+                                        ]})
+            .card-reg__inp-mask
+                +text-input({type: 'text', mask: true, text: 'дата рождения'})
+            +text-input({type: 'email', placeholder: 'Email', text: 'данные для входа в сервис'})
+            +text-input({type: 'password', placeholder: 'Пароль'})
+            .card-reg__toggle
+                +toggle-but({title: 'Получать спецпредложения', id: 'tog123'})
+            .card-reg__button
+                +button({arrow: true, text: 'перейти к оплате'})
+            .card-reg__login
+                p Уже есть аккаунт на Toxin
+                .card-reg__logbut
+                    +button({value: '1337', space: true, purpletxt: true})
