@@ -1,6 +1,10 @@
-include ../../components/slider/slider
-
+include ../../components/card-slider/card-slider
+include ../../components/card-select/card-select.pug
 
 
 .cards
-    +slider({items: ['room1.png', 'room2.png', 'room3.png', 'room4.png'], lycs: true, num: 890, price: 9999, rew: 13})
+    include ../../components/gray-logo/gray-logo.pug
+    .cards__container
+        +card-slider({items: ['room1.png', 'room2.png', 'room3.png', 'room4.png'], lycs: true, num: 890, price: 9999, rew: 13})
+        +card-select()
+        include ../../components/card-tobook/card-tobook.pug

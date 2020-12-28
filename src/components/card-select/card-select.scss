@@ -1,0 +1,37 @@
+@import '@/theme/variables.scss';
+
+.card-select {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 380px;
+    height: 374px;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        width: 320px;
+    }
+    &__title {
+        margin-top: 40px;
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        color: #1F2041;
+    }
+    &__cal {
+        margin-top: 21px;
+    }
+    &__drop {
+        margin-top: 21px;
+    }
+    &__button {
+        margin-top: 31px;
+        width: 320px;
+        height: 44px;
+    }
+}

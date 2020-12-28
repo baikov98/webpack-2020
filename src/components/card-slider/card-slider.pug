@@ -1,0 +1,30 @@
+//- 
+    options.items - массив с img
+    options.lycs - люкс
+    options.num - номер номера
+    options.price - цена
+    options.rew - кол-во отзывов
+
+include ../rating-star/rating-star
+
+mixin card-slider(options)
+    - let num = '№ ' + options.num
+    - let price = options.price ? options.price + '₽' : ''
+    - let rew = options.rew ? options.rew : ''
+    .card-slider
+        .single-item
+            for item in options.items
+                - let image = 'img/' + item
+                div: img(src= image, alt="").card-slider__image
+        .card-slider__content
+            .card-slider__num= num
+                if options.lycs
+                    span люкс
+            .card-slider__price <span>#{price}</span> в сутки
+        .card-slider__hr
+        .card-slider__rating
+            +rating-star({rating: '4'})
+            .card-slider__reviews <span>#{rew}</span> Отзывов
+                
+
+            

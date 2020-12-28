@@ -1,0 +1,19 @@
+
+include ../../components/calendar/calendar
+include ../../components/button/button
+include ../../components/dropdown-room/dropdown-room
+
+mixin card-select(options)
+    - if (!options) options = {}
+    - let title = options.title || 'Найдём номера под ваши пожелания'
+    - let buttext = options.buttext || 'подобрать номер'
+
+    .card-select
+        .card-select__container
+            .card-select__title= title
+            .card-select__cal
+                +calendar({id: 'cal34', title1: 'прибытие', title2: 'выезд'})
+            .card-select__drop
+                +dropdown-room({preset: 'guest', title: 'гости'})
+            .card-select__button
+                +button({arrow: true, text: buttext})
