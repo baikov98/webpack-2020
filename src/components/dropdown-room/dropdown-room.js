@@ -22,7 +22,6 @@ $(document).ready(() => {
                 { baby += Number($(this).text()) }
             })
             $(ctx).parents('.dropdown__box').data('sum', num)
-            console.log($(ctx).parents('.dropdown__box').data())
             var inner;
             var babyinner = '';
             if (num === 1) {numtext = 'гость'};

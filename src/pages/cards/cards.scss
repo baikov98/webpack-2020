@@ -3,13 +3,27 @@
     width: 1920px;
     height: 100%;
     background-color: #E5E5E5;
-
+    
     &__container {
         width: 1440px;
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: minmax(270px, 380px) minmax(270px, 380px) minmax(270px, 380px);
-        column-gap: 40px;
+        display: flex;
+    }
+
+    &__column {
+        display: block;
+        width: 420px;
+        height: 2000px;
+    }
+    &__item {
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    &__item_cal .calendar__box {
+        display: none;
+    }
+    &__item_cal .calendar__select {
+        position: static;
     }
 }
 

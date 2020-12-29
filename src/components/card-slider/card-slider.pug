@@ -4,23 +4,23 @@
     options.num - номер номера
     options.price - цена
     options.rew - кол-во отзывов
-
+    options.stars - колво звезд рейтинга от 1 до 5
+    
 include ../rating-star/rating-star
 include ../room-num/room-num
 
 mixin card-slider(options)
-    - let num = '№ ' + options.num
-    - let price = options.price ? options.price + '₽' : ''
     - let rew = options.rew ? options.rew : ''
+    
     .card-slider
         .single-item
             for item in options.items
                 - let image = 'img/' + item
                 div: img(src= image, alt="").card-slider__image
         .card-slider__content
-            +room-num({num: 898, price: 9890, lycs: true})
+            +room-num({num: options.num, price: options.price, lycs: options.lycs})
         .card-slider__hr
         .card-slider__rating
-            +rating-star({rating: '4'})
+            +rating-star({rating: options.stars})
             .card-slider__reviews <span>#{rew}</span> Отзывов
             

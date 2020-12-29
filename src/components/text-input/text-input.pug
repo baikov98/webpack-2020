@@ -20,7 +20,8 @@ mixin text-input(options)
     - if (options.mask) { mask = 'masked-t-field'; pls = 'ДД.ММ.ГГГГ'}
 
     .text-input(class= options.class)
-        p.text-input__text= options.text
+        if options.text
+            p.text-input__text= options.text
         .text-input__container
             input(  type= options.type
                     placeholder= pls

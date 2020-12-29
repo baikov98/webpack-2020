@@ -1,0 +1,16 @@
+include ../text-input/text-input
+include ../button/button
+
+mixin card-login(options)
+    .card-login
+        .card-login__container
+            .card-login__title Войти
+            .card-login__email
+                +text-input({type: 'email', placeholder: 'Email'})
+            +text-input({type: 'password', placeholder: 'Пароль'})
+            .card-login__button
+                +button({arrow: true, text: 'войти'})
+            .card-login__create
+                p Нет аккаунта на Toxin?
+                .card-login__make-acc
+                    +button({value: '1337', space: true, purpletxt: true, text: 'создать'})

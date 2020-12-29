@@ -107,6 +107,14 @@ const plugins = () => {
                 collapseWhitespace: isProd
             }
                       
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'colors-types.html',
+            template: './pages/colors-types/colors-types.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+                      
         }), 
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin(

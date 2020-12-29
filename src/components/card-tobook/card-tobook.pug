@@ -8,7 +8,7 @@ include ../button/button.pug
 mixin card-tobook(options)
     - if (!options.prices) {options.prices = []}
     .card-tobook(data-price= options.price data-addprices= options.adserve+options.addcost data-days= options.days)
-        .card-tobook__container
+        form.card-tobook__container
             +room-num({num: 867, price: options.price, lycs: true})
             .card-tobook__cal
                 +calendar({id: 'cal3443', title1: 'прибытие', title2: 'выезд'})

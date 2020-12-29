@@ -1,10 +1,11 @@
 include ../text-input/text-input
 include ../radio-but/radio-but
 include ../toggle-but/toggle-but
+include ../button/button
 
 mixin card-reg(options)
     .card-reg
-        .card-reg__container
+        form.card-reg__container
             .card-reg__title Регистрация аккаунта
             +text-input({type: 'text', placeholder: 'Имя'})
             +text-input({type: 'text', placeholder: 'Фамилия'})
@@ -23,4 +24,4 @@ mixin card-reg(options)
             .card-reg__login
                 p Уже есть аккаунт на Toxin
                 .card-reg__logbut
-                    +button({value: '1337', space: true, purpletxt: true})
+                    +button({value: '1337', space: true, purpletxt: true, text: 'войти'})

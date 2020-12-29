@@ -2,11 +2,29 @@ include ../../components/card-slider/card-slider
 include ../../components/card-select/card-select.pug
 include ../../components/card-tobook/card-tobook.pug
 include ../../components/card-reg/card-reg.pug
+include ../../components/card-login/card-login.pug
+include ../../components/calendar/calendar
+
+
 .cards
     include ../../components/gray-logo/gray-logo.pug
     .cards__container
-        +card-tobook({dropid: 'drop12', price: 9900, adserve: 300, addcost: 400, days: 5})
-        +card-slider({items: ['room1.png', 'room2.png', 'room3.png', 'room4.png'], lycs: true, num: 890, price: 9999, rew: 13})
-        +card-select({dropid: 'drop23', values: [3, 4, 0], calid: 'cal2345'})
-        +card-reg()
-        
+            .cards__column
+                .cards__item
+                    +card-select({dropid: 'drop23', values: [3, 4, 0], calid: 'cal2345'})
+                .cards__item
+                    +card-reg()
+            .cards__column
+                .cards__item
+                    +card-tobook({dropid: 'drop12', price: 9900, adserve: 300, addcost: 400, days: 5})
+                .cards__item
+                    +card-login()
+            .cards__column
+                .cards__item.cards__item_cal
+                    +calendar({active: true, id: 'cal99'})
+                .cards__item
+                    +card-slider({items: ['room3.png', 'room2.png', 'room1.png', 'room4.png'], lycs: true, num: 888, price: 9900, rew: 145, stars: 4})
+                .cards__item
+                    +card-slider({items: ['room10.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 840, price: 9900, rew: 65, stars: 5})
+                
+                

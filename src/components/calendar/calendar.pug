@@ -2,10 +2,14 @@
       options.title1 - первый title
       options.title2 - второй title
 
+
+    
+
+
 mixin calendar(options)
     - if (!options) options = {}
     - if (!options.id) options.id = ''
-
+    - if (options.active) {options.active = 'calendar__select_active'}
     .calendar(id = options.id)
         .calendar__box
             .calendar__date-input
@@ -16,7 +20,7 @@ mixin calendar(options)
                 .calendar__input-title-2= options.title2
                 .calendar__exit
                     input.calendar__exit-text(placeholder='ДД.ММ.ГГГГ' autocomplete="off" readonly="true" type="text")
-        .calendar__select(data-year='2011', data-mounth='11')
+        .calendar__select(data-year='2011', data-mounth='11' class= options.active)
             nav.calendar__nav
                 .calendar__prev
                 .calendar__month Август<br>2020

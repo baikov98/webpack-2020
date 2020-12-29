@@ -2,8 +2,8 @@
     options.title - title карточки
     options.buttext - текст кнопки
     options.calid - calendar id
-
-
+    
+    
 include ../../components/calendar/calendar
 include ../../components/button/button
 include ../../components/dropdown-room/dropdown-room
@@ -14,7 +14,7 @@ mixin card-select(options)
     - let buttext = options.buttext || 'подобрать номер'
 
     .card-select
-        .card-select__container
+        form.card-select__container
             .card-select__title= title
             .card-select__cal
                 +calendar({id: options.calid, title1: 'прибытие', title2: 'выезд'})

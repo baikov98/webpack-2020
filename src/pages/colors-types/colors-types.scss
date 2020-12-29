@@ -1,0 +1,109 @@
+@import '@/theme/variables.scss';
+
+.colors-types {
+    width: 1920px;
+    &__container {
+        width: 1440px;
+        margin: 0 auto;
+        margin-top: 67px;
+        display: flex;
+    }
+    &__colors {
+        margin-right: 420px;
+    }
+    &__color {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    &__disc {
+        margin-left: 40px;
+    }
+    &__disc p {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 28px;
+        color: #1F2041;
+        margin: 0;
+        margin-top: 5px;
+    }
+    &__disc div {
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 19px;
+        line-height: 28px;
+        color: #1F2041;
+    }
+
+    &__text {
+        color: #1F2041;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    &__text1 span, &__text2 span, &__text3 span, &__text4 span {
+        color: rgba(31, 32, 65, 0.25);
+        text-align: right;
+        display: block;
+        font-family: $font-mont;
+        font-weight: normal;
+    }
+    &__text1 p, &__text2 p, &__text3 p, &__text4 p {
+        display: block;
+        margin: 0;
+        margin-bottom: 50px;
+        margin-left: 30px;
+        width: 480px;
+        
+    }
+    &__text1, &__text2, &__text3, &__text4 {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__text1 {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        font-family: $font-mont-bold;
+    }
+    &__text2 {
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 23px;
+        font-family: $font-mont-bold;
+    }
+    &__text3 {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        font-family: $font-mont-bold;
+    }
+    &__text4 {
+        font-family: $font-mont;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75);
+    }
+    &__item {
+        width: 30%;
+        height: 30px;
+    }
+    &__rect {
+        width: 70px;
+        height: 70px;
+        //background: #1F2041;
+        border-radius: 6px;
+    }
+    &__rect1 {background: #1F2041;}
+    &__rect2 {background: rgba(31, 32, 65, 0.75);}
+    &__rect3 {background: rgba(31, 32, 65, 0.5);}
+    &__rect4 {background: rgba(31, 32, 65, 0.25);}
+    &__rect5 {background: rgba(31, 32, 65, 0.05);}
+    &__rect6 {background: #BC9CFF;}
+    &__rect7 {background: #6FCF97;}
+}

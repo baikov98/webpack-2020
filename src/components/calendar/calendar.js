@@ -150,8 +150,6 @@ $(document).ready(function() {
                 if (dtMonth < 10) {dtMonth = `0${dtMonth}`}
                 arrive.val(`${dtDate}.${dtMonth}.${dtYear}`);
         } 
-
-        
         },);
 
         //- наведение выши
@@ -189,11 +187,8 @@ $(document).ready(function() {
 
         $('.calendar__date').mouseleave(function(){
             $(this).removeClass('calendar__date_hover');
-        })
-
-        $('.calendar__date').mouseleave(function(){
             $(this).removeClass('calendar__date_grayhover');
-        });
+        })
 
         //- кнопка очистки
         $('.calendar__clear').click(function(){
@@ -211,11 +206,8 @@ $(document).ready(function() {
             })
         })
 
-        
         //- состояние: выбрана дата отбытия
         if (stage === 2) {
-            
-
             var dataobj = id.find('.calendar__exit-text').data()
             var dataobj2 = id.find('.calendar__arrive-text').data() //- берем объект дата из инпута
 
@@ -235,7 +227,6 @@ $(document).ready(function() {
             id.find(`.calendar__date[data-date='${dataobj.date}'][data-month='${dataobj.month}'][data-year='${dataobj.year}']`)
             .addClass('calendar__date_selected') //- подсвечиваем дату прибытия
         }
-        
         
     } //end caldategen
 
@@ -257,21 +248,26 @@ $(document).ready(function() {
     
     $('.calendar__select').data('year', String(yearNum))
 
-    $('.calendar__arrive').click(function(){
+    $('.calendar__arrive, .calendar__exit').click(function(){
             $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active'); 
             var id = $(this).parents('.calendar').attr('id')
             var stage = $(this).parents('.calendar').data('stage') || 0
             monthDiff = 0; 
             calTitle(monthDiff, id, stage)
+
+            $(document).click(
+                function(event){
+                    let calsel = $(`#${id}`)
+                    let btn1 = calsel.find('.calendar__arrive')
+                    let apply = calsel.find('.calendar__apply')
+        
+                    if (! btn1.is(event.target) && btn1.has(event.target).length === 0  &&
+                        ! calsel.is(event.target) && calsel.has(event.target).length === 0) {
+                        calsel.find('.calendar__select').removeClass('calendar__select_active')
+                    }
+            })
     },); 
 
-    $('.calendar__exit').click(function(){
-            $(this).parents('.calendar__box').siblings('.calendar__select').toggleClass('calendar__select_active');
-            var id = $(this).parents('.calendar').attr('id')
-            var stage = $(this).parents('.calendar').data('stage') || 0
-            monthDiff = 0; 
-            calTitle(monthDiff, id, stage)
-    },); 
 
     $('.calendar__prev').click(function(){
             var id = $(this).parents('.calendar').attr('id')
@@ -290,16 +286,11 @@ $(document).ready(function() {
             $(this).parents('.calendar__select').removeClass('calendar__select_active');
     },);
 
-    $(document).click(
-        function(event){
-            let calsel = $('.calendar')
-            let btn1 = $('.calendar__arrive')
-            let apply = $('.calendar__apply')
+    
+    var id = $('.calendar__select_active').parents('.calendar').attr('id')
+    var stage = $('.calendar__select_active').parents('.calendar').data('stage') || 0
+    monthDiff = 0; 
+    calTitle(monthDiff, id, stage)
 
-            if (! btn1.is(event.target) && btn1.has(event.target).length === 0  &&
-                ! calsel.is(event.target) && calsel.has(event.target).length === 0) {
-                $('.calendar__select').removeClass('calendar__select_active')
-            }
-    })
 });
 

@@ -1,0 +1,38 @@
+
+mixin colorstypes(options)
+    .colors-types__color
+        .colors-types__rect(class= options.cls)
+        .colors-types__disc
+            p= options.title
+            div= options.disc
+
+.colors-types
+    include ../../components/gray-logo/gray-logo.pug
+    .colors-types__container
+        .colors-types__colors
+            +colorstypes({title: 'Dark Shade 100%', disc: '#1F2041', cls: 'colors-types__rect1'})
+            +colorstypes({title: 'Dark Shade 75%', disc: '#1F2041', cls: 'colors-types__rect2'})
+            +colorstypes({title: 'Dark Shade 50%', disc: '#1F2041', cls: 'colors-types__rect3'})
+            +colorstypes({title: 'Dark Shade 25%', disc: '#1F2041', cls: 'colors-types__rect4'})
+            +colorstypes({title: 'Dark Shade 5%', disc: '#1F2041', cls: 'colors-types__rect5'})
+            +colorstypes({title: 'Purple', disc: '#BC9CFF', cls: 'colors-types__rect6'})
+            +colorstypes({title: 'Green', disc: '#6FCF97', cls: 'colors-types__rect7'})
+
+        .colors-types__text
+            .colors-types__text1
+                .colors-types__item
+                    span H1
+                p This one is the sub-section <br>or widget title
+            .colors-types__text2
+                .colors-types__item
+                    span H2
+                p Next one is the item title inside widgets
+            .colors-types__text3
+                .colors-types__item
+                    span H3
+                p This is a label or CTA text
+            .colors-types__text4
+                .colors-types__item
+                    span Body
+                p This is the body text which is used for most <br>of the design, like paragraphs, lists, etc.
+        
