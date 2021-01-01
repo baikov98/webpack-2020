@@ -1,7 +1,7 @@
 @import '@/theme/variables.scss';
 
 .votes-disc {
-    width: 315px;
+    max-width: 315px;
     height: 170px;
     margin-top: 21px;
     &__circle {
@@ -51,6 +51,9 @@
         font-size: 14px;
         line-height: 24px;
         color: rgba(31, 32, 65, 0.75);
+        & ul {
+            padding: 0;
+        }
     }
     &__list {
         list-style-type: none;

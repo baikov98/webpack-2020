@@ -1,4 +1,15 @@
+extends ../../base
+block variables
+    - var pageTitle = 'Page Login'
+
+include ../../components/header/header
+include ../../components/card-login/card-login
+
+block content
+    main.page-login
+        +header({logged: false})
+        .page-login__container
+            +card-login()
+        include ../../components/footer/footer.pug
 
 
-
-.page-login

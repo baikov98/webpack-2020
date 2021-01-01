@@ -23,7 +23,7 @@
     }
     &__prices {
         display: grid;
-        grid-template-columns: 220px 20px 80px;
+        grid-template-columns: 220px 20px minmax(55px, 80px);
         margin-top: 10px;
         font-family: $font-mont;
         font-style: normal;
@@ -71,5 +71,17 @@
         margin-top: 20px;
         width: 320px;
         height: 44px;
+    }
+}
+
+@media (max-width: 380px) {
+    .card-tobook {
+        width: 320px;
+    }
+    .card-tobook__container {
+        width: 310px;
+    }
+    .card-tobook__button {
+        width: 310px;
     }
 }

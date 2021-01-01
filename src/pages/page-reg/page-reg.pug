@@ -1,4 +1,15 @@
+extends ../../base
+block variables
+    - var pageTitle = 'Page Registration'
+
+include ../../components/header/header
+include ../../components/card-reg/card-reg
+
+block content
+    main.page-reg
+        +header({logged: false})
+        .page-reg__container
+            +card-reg()
+        include ../../components/footer/footer.pug
 
 
-
-.page-reg
