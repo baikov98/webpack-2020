@@ -14,7 +14,6 @@
     &__label {
         height: 20px;
         display: inline-flex;
-        
         font-family: $font-mont;
         font-style: normal;
         font-weight: normal;
@@ -54,16 +53,14 @@
 
 /* формируем внешний вид чекбокса в псевдоэлементе before */
 .checkbox__label:before {
-    content: " ";
+    content: "";
     color: #000;
     display: inline-block;
     margin-right: 10px;
     text-align: center;
-    text-indent: 0px;
-    width: 20px;
-    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     background: #FFF;
-    vertical-align: middle;
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
     border-radius: 4px;

@@ -1,0 +1,84 @@
+@import '@/theme/variables.scss';
+
+.votes-disc {
+    width: 315px;
+    height: 170px;
+    margin-top: 21px;
+    &__circle {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid #BC9CFF;
+        border-radius: 50%;
+        border-bottom: 3px solid green;
+    }
+    &__circle-votes {
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        color: #BC9CFF;
+        text-transform: uppercase;
+        & span {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+    &__title {
+        width: 250px;
+        font-family: $font-mont-bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 23px;
+        color: #1F2041;
+        margin-bottom: 20px;
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__levels {
+        margin: auto 0 0 0;
+        height: 146px;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75);
+    }
+    &__list {
+        list-style-type: none;
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 7px;
+            left: -15px;
+            content: ' ';
+            background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+            width: 10px;
+            height: 10px;  
+            border-radius: 50%;  
+        }
+        &:first-child {
+            &::before {
+                background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
+            }
+        }
+        &:nth-child(2) {
+            &::before {
+                background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+            }
+        }
+        &:nth-child(3) {
+            &::before {
+                background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            }
+        }
+    }
+}

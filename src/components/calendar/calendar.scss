@@ -1,6 +1,6 @@
 @import '@/theme/variables.scss';
 .calendar {
-    width: 320px;
+    max-width: 320px;
     position: relative;
     &__box {
         max-width: 320px;
@@ -222,7 +222,7 @@
         cursor: pointer;
     }
     &__date-input {
-        margin-right: 20px;
+        
     }
     &__input-title-1,
     &__input-title-2 {
@@ -235,6 +235,12 @@
         color: #1F2041;
         margin-bottom: 5px;
 }
+}
+
+@media (max-width: 380px) {
+    .calendar__select {
+        max-width: 320px;
+    }
 }
 
 

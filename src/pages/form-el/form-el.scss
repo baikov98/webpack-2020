@@ -1,12 +1,9 @@
 @import '@/theme/variables.scss';
-body {
-    background-color: white;
-    height: 3000px;
-}
+
 .form-el {
     width: 1440px;
     margin: auto;
-    background-color: red;
+    background: white;
 
     &__container {
         margin: auto;

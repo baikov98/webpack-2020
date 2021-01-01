@@ -27,7 +27,7 @@
     border-radius: 4px;
     background: #FFFFFF;
     color: rgba(31, 32, 65, 0.75);
-    width: 266px;
+    max-width: 266px;
     position: relative;
     &::after{
         top: 10px;
@@ -56,8 +56,12 @@
     border: none;
 }
 
+.dropdown_w320 {
+    max-width: 320px;
+}
+
 .drop__menu {
-    width: 266px;
+    width: 100%;
     display: none;
     position: absolute;
     top: 63px;
@@ -66,10 +70,6 @@
     border-radius: 0 0 4px 4px;
     box-sizing: border-box;
     z-index: 1;
-}
-
-.dropdown_w320 {
-    width: 320px;
 }
 
 .visible {
@@ -126,6 +126,7 @@
     text-transform: uppercase;
     color: #1F2041;
     padding-left: 15px;
+    flex-grow: 1;
 }
 
 .item__calc {

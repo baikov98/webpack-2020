@@ -13,11 +13,11 @@ mixin header(options)
             .header__burger
                 span
             nav.header__nav
-                +menu-items([{name: 'О нас', class: 'header__menu-item_current', href: '/about'}, 
-                            {name: 'Услуги', class: 'header__menu-item_arrow-down', href: '/services'},
-                            {name: 'Вакансии', class: '', href: '/vacancies'},
-                            {name: 'Новости', class: '', href: '/news'},
-                            {name: 'Соглашения', class: 'header__menu-item_arrow-down', href: '/vacancies'},])
+                +menu-items([{name: 'О нас', class: 'header__menu-item_current', href: '#'}, 
+                            {name: 'Услуги', class: 'header__menu-item_arrow-down', href: '#'},
+                            {name: 'Вакансии', class: '', href: '#'},
+                            {name: 'Новости', class: '', href: '#'},
+                            {name: 'Соглашения', class: 'header__menu-item_arrow-down', href: '#'},])
                 
                 if (options.logged === true)
                     .header__stick

@@ -1,0 +1,15 @@
+//- 
+    options.num - кол-во голосов
+    options.percent - массив процентов от лучшего к худшим ([великолеп., хорошо, удовлет., разочаров.])
+
+mixin votes-disc(options)
+    .votes-disc
+        .votes-disc__content
+            .votes-disc__circle
+                .votes-disc__circle-votes <span>260</span><br>голосов
+            .votes-disc__levels
+                ul
+                    li.votes-disc__list Великолепно
+                    li.votes-disc__list Хорошо
+                    li.votes-disc__list Удовлетворительно
+                    li.votes-disc__list Разочарован

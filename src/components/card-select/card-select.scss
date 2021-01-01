@@ -12,7 +12,7 @@
     justify-content: center;
 
     &__container {
-        width: 320px;
+        max-width: 320px;
     }
     &__title {
         margin-top: 40px;
@@ -34,4 +34,14 @@
         width: 320px;
         height: 44px;
     }
+}
+
+@media (max-width: 380px) {
+   .card-select__title {
+       text-align: center;
+   }
+   .card-select__button {
+       width: 300px;
+   }
+    
 }

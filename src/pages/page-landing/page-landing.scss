@@ -1,0 +1,70 @@
+@import '@/theme/variables.scss';
+
+.page-landing {
+    &__container {
+        max-width: 1440px;
+        height: 900px;
+        background: url('img/search-room-back.png') no-repeat;
+        background-size: cover;
+        background-position: center center;
+        margin: 0 auto;
+    }
+    &__content {
+        max-width: 1160px;
+        height: inherit;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: space-between;
+    }
+
+    &__select {
+        padding-top: 70px;
+    }
+    &__text {
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: right;
+        color: rgba(31, 32, 65, 0.75);
+        margin-bottom: 18px;
+    }
+    &__text p {
+        margin: 0;
+    }
+}
+
+
+@media (max-width: 1160px) {
+    .page-landing__select {
+        margin-left: 30px;
+    }
+    .page-landing__text {
+        margin-right: 30px;
+    }
+    .page-landing__container {
+        height: 700px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .page-landing__select {
+        display: flex;
+        justify-content: center;
+        margin-left: 0px;
+    }
+    .page-landing__text {
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+        text-align: center;
+    }
+    .page-landing__container {
+        height: 600px;
+    }
+    
+}

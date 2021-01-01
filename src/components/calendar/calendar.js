@@ -69,7 +69,7 @@ $(document).ready(function() {
             for (var i = 1; !(totalElems % 7 === 0); i++) {
                 var nextMthday = mostime(diff+1)
                 nextMthday.setDate(i)
-                $('.calendar__dates')
+                id.find('.calendar__dates')
                 .append(`<div data-date="${nextMthday.getDate()}" data-month="${nextMthday.getMonth()}" data-year="${nextMthday.getFullYear()}" class="calendar__date calendar__other-month">${nextMthday.getDate()}</div>`);
                 totalElems += 1
             }}
@@ -157,14 +157,14 @@ $(document).ready(function() {
             if (stage === 0) {
                 $(this).addClass('calendar__date_grayhover');
             }
-            
+            var thisdate = $(this)
             if (stage === 1) {
             $(this).addClass('calendar__date_hover');
             var mouseEntrDate = $(this).data()
             var arriveDate = $(this).parents('.calendar').find('.calendar__arrive-text').data()
             var mouseEntr = $(this)
             
-            $('.calendar__date').each(function(){
+            thisdate.parents('.calendar').find('.calendar__date').each(function(){
                 var eachDate = $(this).data()
 
                 $(this).removeClass('calendar__in-range')
@@ -289,6 +289,7 @@ $(document).ready(function() {
     
     var id = $('.calendar__select_active').parents('.calendar').attr('id')
     var stage = $('.calendar__select_active').parents('.calendar').data('stage') || 0
+    if (id === 'disabled') {stage = 2}
     monthDiff = 0; 
     calTitle(monthDiff, id, stage)
 

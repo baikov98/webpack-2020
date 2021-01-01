@@ -1,0 +1,17 @@
+extends ../../base
+block variables
+    - var pageTitle = 'Page Landing'
+
+include ../../components/header/header
+include ../../components/card-select/card-select
+
+block content
+    .page-landing
+        +header({logged: false})
+        .page-landing__container
+            .page-landing__content
+                .page-landing__select
+                    +card-select({dropid: 'drop232', values: [2, 1, 0], calid: 'cal23245'})
+                .page-landing__text
+                    p Лучшие номера для вашей работы,<br> отдыха и просто вдохновения
+        include ../../components/footer/footer.pug

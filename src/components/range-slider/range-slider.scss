@@ -2,7 +2,7 @@
 
 .range {
     width: 266px;
-    height: 50px;
+
     &__text {
         font-family: $font-mont-bold;
         font-style: normal;
@@ -11,10 +11,9 @@
         line-height: 15px;
         text-transform: uppercase;
         color: #1F2041;
+        width: 140px;
     }
-    &__text {
-        
-    }
+    
     &__input {
         display: flex;
         justify-content: space-between;
@@ -32,6 +31,7 @@
         outline: none;
         cursor: default;
         border: none;
+        width: 120px;
     }
     &__cont {
         z-index: 0;

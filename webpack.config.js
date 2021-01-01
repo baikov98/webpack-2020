@@ -115,7 +115,42 @@ const plugins = () => {
                 collapseWhitespace: isProd
             }
                       
-        }), 
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'page-landing.html',
+            template: './pages/page-landing/page-landing.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'page-search.html',
+            template: './pages/page-search/page-search.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'page-room-details.html',
+            template: './pages/page-room-details/page-room-details.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'page-reg.html',
+            template: './pages/page-reg/page-reg.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'page-login.html',
+            template: './pages/page-login/page-login.pug',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin(
             [
@@ -179,8 +214,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                
-                loader: 'file-loader?name=/img/[name].[ext]'
+                loader: 'file-loader?name=img/[name].[ext]'
                 
             },
             {
