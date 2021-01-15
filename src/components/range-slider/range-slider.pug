@@ -6,8 +6,8 @@ mixin range(options)
     .range
         .range__input
             p.range__text= options.text
-            input(type="text" readonly).range__input-box
+            input(type="text" ).range__input-box
         .range__cont
-            .range__min(draggable="false")
+            .range__min
             .range__bar
-            .range__max(draggable="false")
+            .range__max

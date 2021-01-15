@@ -5,15 +5,16 @@ $(document).ready(function () {
 
     if ($('*').is('.range')) {
     
-    var min = 0
-    var max = 20000;
-    var input = $('.range__input-box')
-    var rangeBoxOfs = $('.range__cont').offset()
-    var rangeBoxX = rangeBoxOfs.left
-    var rangemax = $('.range__max');
-    var rangemin = $('.range__min');
-    var boxWidth = $('.range__cont').width()
-    console.log(rangeBoxOfs)
+    let min = 0;
+    let max = 20000;
+    let input = $('.range__input-box')
+    let rangeBoxOfs = $('.range__cont').offset()
+    let rangeBoxX = rangeBoxOfs.left
+    let rangemax = $('.range__max');
+    let rangemin = $('.range__min');
+    let boxWidth = $('.range__cont').width()
+    
+    
     function calc(pnum) {
         return (Math.round(Math.round(((pnum-rangeBoxX) / (boxWidth))*max) / 100))*100
     }
@@ -21,24 +22,24 @@ $(document).ready(function () {
         input.val(`${rangefrom}₽ - ${rangeto}₽`)
     }
     
-    $('.range__max').css( {'left': ''+(130)+'px' } )
-    $('.range__min').css( {'left': ''+(65)+'px' } )
+    $('.range__max').css( {'left': ''+(130)+'px' } ) // def max val
+    $('.range__min').css( {'left': ''+(65)+'px' } ) // def min val
     
     var maxpoint = $('.range__max').offset().left
     var minpoint = $('.range__min').offset().left
 
     var midbar = $('.range__bar')
     midbar.width(maxpoint - minpoint)
-    console.log(minpoint)
+
     midbar.css( {'left': ''+(minpoint-rangeBoxX)+'px' } )
     var rangefrom = calc(minpoint)
     var rangeto = calc(maxpoint)
     fillInput()
-    console.log(minpoint, maxpoint)
-    $('.range__max').mousedown((e) => {
-        var x = e.pageX
+    
+    $('.range__max').on('mousedown', (e) => { 
+        let x = e.pageX //e.pageX
+        
         $(document).bind('mouseup', () => {
-            console.log(minpoint, maxpoint)
             $(document).unbind()
         })
 
@@ -54,10 +55,9 @@ $(document).ready(function () {
         }) 
     })
 
-    $('.range__min').mousedown((e) => {
+    $('.range__min').on('mousedown', (e) => {
         var x = e.pageX
         $(document).bind('mouseup', () => {
-            console.log(minpoint, maxpoint)
             $(document).unbind()
         })
 

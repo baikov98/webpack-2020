@@ -1,0 +1,22 @@
+extends ../../base
+block variables
+    - var pageTitle = 'All Pages Toxin'
+
+include ../../components/header/header
+include ../../components/card-select/card-select
+
+block content
+    main.page-landing
+        +header({logged: false})
+        .all-pages
+            p Все страницы отеля Toxin
+            a(href="cards.html") Cards
+            a(href="colors-types.html") Colors Types
+            a(href="form-el.html") Form Elements
+            a(href="head-foot.html") Headers Footers
+            a(href="page-landing.html") Landing Page
+            a(href="page-room-details.html") Room Details
+            a(href="page-search.html") Search Page
+            a(href="page-login.html") Login Page
+            a(href="page-reg.html") Registration Page
+        include ../../components/footer/footer.pug

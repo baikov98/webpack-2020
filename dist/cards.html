@@ -1,0 +1,444 @@
+<head><link href="vendors~main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"></head>
+<div class="cards">
+<div class="gray-logo"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.9989 32.4712C23.2224 32.4712 22.5871 31.8359 22.5871 31.0594C22.5871 25.6241 18.14 21.177 12.7047 21.177C11.9283 21.177 11.293 20.5418 11.293 19.7653C11.293 18.9888 11.9283 18.3535 12.7047 18.3535C19.7283 18.3535 25.4106 24.0359 25.4106 31.0594C25.4106 31.8359 24.7753 32.4712 23.9989 32.4712Z" fill="#1F2041" fill-opacity="0.25"/>
+<path d="M36.7068 19.7653C36.7068 20.5418 36.0715 21.177 35.295 21.177C31.9421 21.177 28.9421 22.8712 27.1774 25.4476C26.7892 24.4594 26.3303 23.5418 25.7656 22.6947C28.095 20.0123 31.5186 18.3535 35.295 18.3535C36.0715 18.3535 36.7068 18.9888 36.7068 19.7653Z" fill="#1F2041" fill-opacity="0.25"/>
+<path d="M24 48C10.7647 48 0 37.2353 0 24C0 10.7647 10.7647 0 24 0C37.2353 0 48 10.7647 48 24C48 37.2353 37.2353 48 24 48ZM24 2.82353C12.3176 2.82353 2.82353 12.3176 2.82353 24C2.82353 35.6824 12.3176 45.1765 24 45.1765C35.6824 45.1765 45.1765 35.6824 45.1765 24C45.1765 12.3176 35.6824 2.82353 24 2.82353Z" fill="#1F2041" fill-opacity="0.25"/>
+</svg>
+
+</div>
+  <div class="cards__container">
+    <div class="cards__column">
+      <div class="cards__item">
+        <div class="card-select">
+          <form class="card-select__container">
+            <div class="card-select__title">Найдём номера под ваши пожелания</div>
+            <div class="card-select__cal">
+              <div class="calendar" id="cal2345">
+                <div class="calendar__box">
+                  <div class="calendar__date-input">
+                    <div class="calendar__input-title-1">прибытие</div>
+                    <div class="calendar__arrive">
+                      <input class="calendar__arrive-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+                    </div>
+                  </div>
+                  <div class="calendar__date-input">
+                    <div class="calendar__input-title-2">выезд</div>
+                    <div class="calendar__exit">
+                      <input class="calendar__exit-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar__select" data-year="2011" data-mounth="11">
+                  <nav class="calendar__nav">
+                    <div class="calendar__prev"></div>
+                    <div class="calendar__month">Август<br>2020</div>
+                    <div class="calendar__next"></div>
+                  </nav>
+                  <div class="calendar__content-box">
+                    <div class="calendar__content">
+                      <div class="calendar__week-days">
+                        <div class="calendar__week-day">Пн</div>
+                        <div class="calendar__week-day">Вт</div>
+                        <div class="calendar__week-day">Ср</div>
+                        <div class="calendar__week-day">Чт</div>
+                        <div class="calendar__week-day">Пт</div>
+                        <div class="calendar__week-day">Сб</div>
+                        <div class="calendar__week-day">Вс</div>
+                      </div>
+                      <div class="calendar__dates"></div>
+                    </div>
+                  </div>
+                  <div class="calendar__buttons">
+                    <div class="calendar__clear">очистить</div>
+                    <div class="calendar__apply">применить</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-select__drop">
+              <div class="dropdown__box" data-preset="guest" id="drop23">
+                <div class="drop__title">гости</div>
+                <div class="drop__text-box">
+                  <input class="drop__text-field" type="text" readonly="readonly">
+                </div>
+                <div class="drop__menu">
+                  <div class="item"> 
+                    <div class="item__text">спальни</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">3</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                  <div class="item"> 
+                    <div class="item__text">кровати</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">4</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                  <div class="item"> 
+                    <div class="item__text">ванные комнаты</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">0</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-select__button">
+              <button class="button_arrow button">
+                <div>
+                  <div class="button-text">подобрать номер</div>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cards__item">
+        <div class="card-reg">
+          <form class="card-reg__container">
+            <div class="card-reg__title">Регистрация аккаунта</div>
+            <div class="text-input">
+              <div class="text-input__container">
+                <input class="text-input__w320 text-input__box" type="text" placeholder="Имя" maxlength="70">
+                <div></div>
+              </div>
+            </div>
+            <div class="text-input">
+              <div class="text-input__container">
+                <input class="text-input__w320 text-input__box" type="text" placeholder="Фамилия" maxlength="70">
+                <div></div>
+              </div>
+            </div>
+            <div class="radio-but">
+              <div class="radio-but__text"></div>
+              <div class="radio-but__container">
+                <div class="radio-but">
+                  <input class="radio-but__input" checked="checked" type="radio" id="radio-man" name="sex">
+                  <label class="radio-but__label" for="radio-man">Мужчина
+                    <div class="radio-but__circle"></div>
+                  </label>
+                </div>
+                <div class="radio-but">
+                  <input class="radio-but__input" type="radio" id="radio-woman" name="sex">
+                  <label class="radio-but__label" for="radio-woman">Женщина
+                    <div class="radio-but__circle"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="card-reg__inp-mask">
+              <div class="text-input">
+                <p class="text-input__text">дата рождения</p>
+                <div class="text-input__container">
+                  <input class="text-input__w320 masked-t-field text-input__box" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="70">
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-input">
+              <p class="text-input__text">данные для входа в сервис</p>
+              <div class="text-input__container">
+                <input class="text-input__w320 text-input__box" type="email" placeholder="Email" maxlength="70">
+                <div></div>
+              </div>
+            </div>
+            <div class="text-input">
+              <div class="text-input__container">
+                <input class="text-input__w320 text-input__box" type="password" placeholder="Пароль" maxlength="70">
+                <div></div>
+              </div>
+            </div>
+            <div class="card-reg__toggle">
+              <div class="toggle-but">
+                <label class="toggle-but__label" for="tog123">Получать спецпредложения
+                  <input class="toggle-but__input" type="checkbox" id="tog123">
+                  <div class="toggle-but__slider"></div>
+                </label>
+              </div>
+            </div>
+            <div class="card-reg__button">
+              <button class="button_arrow button">
+                <div>
+                  <div class="button-text">перейти к оплате</div>
+                </div>
+              </button>
+            </div>
+            <div class="card-reg__login">
+              <p>Уже есть аккаунт на Toxin</p>
+              <div class="card-reg__logbut">
+                <button class="button" value="1337">
+                  <div class="button__white-space">
+                    <div class="button-text button-text_purple">войти</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cards__column">
+      <div class="cards__item">
+        <div class="card-tobook" data-price="9900" data-addprices="700" data-days="5">
+          <form class="card-tobook__container">
+            <div class="room-num">
+              <div class="room-num__num">№ 867<span>люкс</span>
+              </div>
+              <div class="room-num__price"><span>9900₽</span> в сутки</div>
+            </div>
+            <div class="card-tobook__cal">
+              <div class="calendar" id="cal3443">
+                <div class="calendar__box">
+                  <div class="calendar__date-input">
+                    <div class="calendar__input-title-1">прибытие</div>
+                    <div class="calendar__arrive">
+                      <input class="calendar__arrive-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+                    </div>
+                  </div>
+                  <div class="calendar__date-input">
+                    <div class="calendar__input-title-2">выезд</div>
+                    <div class="calendar__exit">
+                      <input class="calendar__exit-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar__select" data-year="2011" data-mounth="11">
+                  <nav class="calendar__nav">
+                    <div class="calendar__prev"></div>
+                    <div class="calendar__month">Август<br>2020</div>
+                    <div class="calendar__next"></div>
+                  </nav>
+                  <div class="calendar__content-box">
+                    <div class="calendar__content">
+                      <div class="calendar__week-days">
+                        <div class="calendar__week-day">Пн</div>
+                        <div class="calendar__week-day">Вт</div>
+                        <div class="calendar__week-day">Ср</div>
+                        <div class="calendar__week-day">Чт</div>
+                        <div class="calendar__week-day">Пт</div>
+                        <div class="calendar__week-day">Сб</div>
+                        <div class="calendar__week-day">Вс</div>
+                      </div>
+                      <div class="calendar__dates"></div>
+                    </div>
+                  </div>
+                  <div class="calendar__buttons">
+                    <div class="calendar__clear">очистить</div>
+                    <div class="calendar__apply">применить</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-tobook__drop">
+              <div class="dropdown__box" data-preset="guest">
+                <div class="drop__title">гости</div>
+                <div class="drop__text-box">
+                  <input class="drop__text-field" type="text" readonly="readonly">
+                </div>
+                <div class="drop__menu">
+                  <div class="item"> 
+                    <div class="item__text">спальни</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">3</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                  <div class="item"> 
+                    <div class="item__text">кровати</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">2</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                  <div class="item"> 
+                    <div class="item__text">ванные комнаты</div>
+                    <div class="item__calc">
+                      <button class="item__calc-dec" type="button">-</button>
+                      <div class="item__value">0</div>
+                      <button class="item__calc-inc" type="button">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-tobook__prices">
+              <div class="card-tobook__cost_main"><span>9900</span>₽ х 5 суток</div>
+              <p></p>
+              <div class="card-tobook__money-sum"><span>39 960</span>₽</div>
+            </div>
+            <div class="card-tobook__prices">
+              <div class="card-tobook__cost">Сбор за услуги: скидка 2 179₽</div>
+              <div class="card-tobook__i">i</div>
+              <div class="card-tobook__money">300₽</div>
+            </div>
+            <div class="card-tobook__prices">
+              <div class="card-tobook__cost">Сбор за дополнительные услуги</div>
+              <div class="card-tobook__i">i</div>
+              <div class="card-tobook__money">400₽</div>
+            </div>
+            <div class="card-tobook__result">
+              <div class="card-tobook__restext">Итого</div>
+              <div class="card-tobook__dash"></div>
+              <div class="card-tobook__sum"><span>38 081</span>₽</div>
+            </div>
+            <div class="card-tobook__button">
+              <button class="button_arrow button">
+                <div>
+                  <div class="button-text">забронировать</div>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cards__item">
+        <div class="card-login">
+          <div class="card-login__container">
+            <div class="card-login__title">Войти</div>
+            <div class="card-login__email">
+              <div class="text-input">
+                <div class="text-input__container">
+                  <input class="text-input__w320 text-input__box" type="email" placeholder="Email" maxlength="70">
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-input">
+              <div class="text-input__container">
+                <input class="text-input__w320 text-input__box" type="password" placeholder="Пароль" maxlength="70">
+                <div></div>
+              </div>
+            </div>
+            <div class="card-login__button">
+              <button class="button_arrow button">
+                <div>
+                  <div class="button-text">войти</div>
+                </div>
+              </button>
+            </div>
+            <div class="card-login__create">
+              <p>Нет аккаунта на Toxin?</p>
+              <div class="card-login__make-acc">
+                <button class="button" value="1337">
+                  <div class="button__white-space">
+                    <div class="button-text button-text_purple">создать</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cards__column">
+      <div class="cards__item cards__item_cal">
+        <div class="calendar" id="disabled">
+          <div class="calendar__box">
+            <div class="calendar__date-input">
+              <div class="calendar__input-title-1"></div>
+              <div class="calendar__arrive">
+                <input class="calendar__arrive-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+              </div>
+            </div>
+            <div class="calendar__date-input">
+              <div class="calendar__input-title-2"></div>
+              <div class="calendar__exit">
+                <input class="calendar__exit-text" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly="true" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="calendar__select calendar__select_active" data-year="2011" data-mounth="11">
+            <nav class="calendar__nav">
+              <div class="calendar__prev"></div>
+              <div class="calendar__month">Август<br>2020</div>
+              <div class="calendar__next"></div>
+            </nav>
+            <div class="calendar__content-box">
+              <div class="calendar__content">
+                <div class="calendar__week-days">
+                  <div class="calendar__week-day">Пн</div>
+                  <div class="calendar__week-day">Вт</div>
+                  <div class="calendar__week-day">Ср</div>
+                  <div class="calendar__week-day">Чт</div>
+                  <div class="calendar__week-day">Пт</div>
+                  <div class="calendar__week-day">Сб</div>
+                  <div class="calendar__week-day">Вс</div>
+                </div>
+                <div class="calendar__dates"></div>
+              </div>
+            </div>
+            <div class="calendar__buttons">
+              <div class="calendar__clear">очистить</div>
+              <div class="calendar__apply">применить</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <div class="card-slider">
+          <div class="single-item">
+            <div><img class="card-slider__image" src="img/room3.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room2.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room1.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room4.png" alt=""></div>
+          </div>
+          <div class="card-slider__content">
+            <div class="room-num">
+              <div class="room-num__num">№ 888<span>люкс</span>
+              </div>
+              <div class="room-num__price"><span>9900₽</span> в сутки</div>
+            </div>
+          </div>
+          <div class="card-slider__hr"></div>
+          <div class="card-slider__rating">
+            <div class="rating-star">
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item_empty"></div>
+            </div>
+            <div class="card-slider__reviews"><span>145</span> Отзывов</div>
+          </div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <div class="card-slider">
+          <div class="single-item">
+            <div><img class="card-slider__image" src="img/room10.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room6.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room7.png" alt=""></div>
+            <div><img class="card-slider__image" src="img/room8.png" alt=""></div>
+          </div>
+          <div class="card-slider__content">
+            <div class="room-num">
+              <div class="room-num__num">№ 840
+              </div>
+              <div class="room-num__price"><span>9900₽</span> в сутки</div>
+            </div>
+          </div>
+          <div class="card-slider__hr"></div>
+          <div class="card-slider__rating">
+            <div class="rating-star">
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+              <div class="rating-star__item"></div>
+            </div>
+            <div class="card-slider__reviews"><span>65</span> Отзывов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><script type="text/javascript" src="vendors~main.js"></script><script type="text/javascript" src="main.js"></script>

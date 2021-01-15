@@ -1,0 +1,29 @@
+@import '@/theme/variables.scss';
+
+.all-pages {
+    width: 380px;
+    height: 400px;
+    background-color: white;
+    margin: 10px auto;
+    border-radius: 10px;
+    & a {
+        width: 200px;
+        display: block;
+        text-align: left;
+        margin: 5px auto;
+        font-family: $font-mont;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75);
+    }
+    & p {
+        text-align: center;
+        padding-top: 20px;
+        font-family: $font-mont-bold;
+        font-size: 24px;
+        line-height: 29px;
+        font-weight: bold;
+    }
+}

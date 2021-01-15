@@ -2,7 +2,7 @@
 
 .range {
     width: 266px;
-
+    
     &__text {
         font-family: $font-mont-bold;
         font-style: normal;
@@ -54,6 +54,7 @@
     }
     &__max,
     &__min {
+        z-index: 3;
         cursor: default;
         user-select: none;
         position: absolute;

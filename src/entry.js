@@ -8,10 +8,14 @@ import '../node_modules/slick-carousel/slick/slick.min.js'
 import '../node_modules/slick-carousel/slick/slick.css'
 import '../node_modules/slick-carousel/slick/slick-theme.css'
 
+
+import '../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css'
+import '../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js'
+
 import './theme/fonts/text-fonts.scss'
 import './theme/global.scss';
 
-import './index.pug'
+
 
 import './plug.js';
 

@@ -79,11 +79,12 @@ const plugins = () => {
     const base = [
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './index.pug',
+            template: './pages/all-pages/all-pages.pug',
             minify: {
                 collapseWhitespace: isProd
-            }       
-        }),
+            }
+                      
+        }), 
         new HTMLWebpackPlugin({
             filename: 'head-foot.html',
             template: './pages/head-foot/head-foot.pug',
