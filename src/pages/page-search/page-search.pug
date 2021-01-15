@@ -13,53 +13,54 @@ include ../../components/dropdown-room/dropdown-room
 include ../../components/rich-checkbox/rich-checkbox
 include ../../components/exp-check-list/exp-check-list
 block content
-    main.page-search
+    .page-search
         +header({logged: false})
-        .page-search__container
-            .page-search__cont
-                form.page-search__filter
-                    .page-search__calfil
-                        +calendarFilter({id: 'filter44', title: 'даты пребывания в отеле'})
-                    .page-search__guests
-                        +dropdown-room({preset: 'guest', title: 'гости', values: [2, 1, 1]})
-                    .page-search__range
-                        +range({text: 'диапазон цены'})
-                        .page-search__range-text Стоимость за сутки пребывания в номере
-                    .page-search__checkbox
-                        .page-search__checkbox-text правила дома
-                        +checkbox({title: 'Можно курить', id: '1'})
-                        +checkbox({title: 'Можно с питомцами', id: '2', checked: true})
-                        +checkbox({title: 'Можно пригласить гостей (до 10 человек)', id: '3', checked: true})
-                    .page-search__rich-check
-                        +rich-checkbox({name: 'доступность', items:
-                                    [{title: 'Широкий коридор', text: 'Ширина коридоров в номере не менее 91 см.', id: 'rich1'},
-                                    {title: 'Помощник для инвалидов', text: 'На 1 этаже вас встретит специалист  и проводит до номера.', id: 'rich2'}]})
-                    .page-search__drop
-                        +dropdown-room({title: 'удобства номера', values: [2, 2, 1]})
-                    +exp-check-list({name: 'дополнительные удобства',
-                                    items: [{id: 'ch1', title: 'Завтрак'},
-                                            {id: 'ch2', title: 'Письменный стол', checked: true},
-                                            {id: 'ch3', title: 'Стул для кормления', checked: true},
-                                            {id: 'ch4', title: 'Кроватка', checked: true},
-                                            {id: 'ch5', title: 'Телевизор'},
-                                            {id: 'ch6', title: 'Шампунь'},
-                                            {id: 'ch7', title: 'Телевизор'},
-                                            {id: 'ch8', title: 'Шампунь'}]})
-            .page-search__rooms
-                .page-search__rooms-title Номера, которые мы для вас подобрали
-                .page-search__rooms-content
-                    +card-slider({items: ['room3.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 888, price: 9900, rew: 145, stars: 5})
-                    +card-slider({items: ['room10.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 840, price: 9900, rew: 65, stars: 4})
-                    +card-slider({items: ['room2.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 980, price: 8500, rew: 35, stars: 3})
-                    +card-slider({items: ['room1.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 856, price: 7300, rew: 19, stars: 5})
-                    +card-slider({items: ['room6.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 740, price: 6000, rew: 44, stars: 4})
-                    +card-slider({items: ['room7.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 982, price: 5800, rew: 56, stars: 3})
-                    +card-slider({items: ['room12.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 678, price: 5500, rew: 45, stars: 5})
-                    +card-slider({items: ['room4.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 450, price: 5300, rew: 39, stars: 4})
-                    +card-slider({items: ['room11.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 350, price: 5000, rew: 77, stars: 3})
-                    +card-slider({items: ['room9.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 666, price: 5000, rew: 25, stars: 5})
-                    +card-slider({items: ['room8.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 444, price: 5000, rew: 15, stars: 4})
-                    +card-slider({items: ['room5.png', 'room6.png', 'room7.png', 'room8.png'], lycs: false, num: 352, price: 5000, rew: 55, stars: 3})
+        main.page-search__main
+            .page-search__container
+                .page-search__cont
+                    form.page-search__filter
+                        .page-search__calfil
+                            +calendarFilter({id: 'filter44', title: 'даты пребывания в отеле'})
+                        .page-search__guests
+                            +dropdown-room({preset: 'guest', title: 'гости', values: [2, 1, 1]})
+                        .page-search__range
+                            +range({text: 'диапазон цены'})
+                            .page-search__range-text Стоимость за сутки пребывания в номере
+                        .page-search__checkbox
+                            .page-search__checkbox-text правила дома
+                            +checkbox({title: 'Можно курить', id: '1'})
+                            +checkbox({title: 'Можно с питомцами', id: '2', checked: true})
+                            +checkbox({title: 'Можно пригласить гостей (до 10 человек)', id: '3', checked: true})
+                        .page-search__rich-check
+                            +rich-checkbox({name: 'доступность', items:
+                                        [{title: 'Широкий коридор', text: 'Ширина коридоров в номере не менее 91 см.', id: 'rich1'},
+                                        {title: 'Помощник для инвалидов', text: 'На 1 этаже вас встретит специалист  и проводит до номера.', id: 'rich2'}]})
+                        .page-search__drop
+                            +dropdown-room({title: 'удобства номера', values: [2, 2, 1]})
+                        +exp-check-list({name: 'дополнительные удобства',
+                                        items: [{id: 'ch1', title: 'Завтрак'},
+                                                {id: 'ch2', title: 'Письменный стол', checked: true},
+                                                {id: 'ch3', title: 'Стул для кормления', checked: true},
+                                                {id: 'ch4', title: 'Кроватка', checked: true},
+                                                {id: 'ch5', title: 'Телевизор'},
+                                                {id: 'ch6', title: 'Шампунь'},
+                                                {id: 'ch7', title: 'Телевизор'},
+                                                {id: 'ch8', title: 'Шампунь'}]})
+                .page-search__rooms
+                    .page-search__rooms-title Номера, которые мы для вас подобрали
+                    .page-search__rooms-content
+                        +card-slider({items: ['room3.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 888, price: 9900, rew: 145, stars: 5})
+                        +card-slider({items: ['room10.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 840, price: 9900, rew: 65, stars: 4})
+                        +card-slider({items: ['room2.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 980, price: 8500, rew: 35, stars: 3})
+                        +card-slider({items: ['room1.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 856, price: 7300, rew: 19, stars: 5})
+                        +card-slider({items: ['room6.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 740, price: 6000, rew: 44, stars: 4})
+                        +card-slider({items: ['room7.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 982, price: 5800, rew: 56, stars: 3})
+                        +card-slider({items: ['room12.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 678, price: 5500, rew: 45, stars: 5})
+                        +card-slider({items: ['room4.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 450, price: 5300, rew: 39, stars: 4})
+                        +card-slider({items: ['room11.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 350, price: 5000, rew: 77, stars: 3})
+                        +card-slider({items: ['room9.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 666, price: 5000, rew: 25, stars: 5})
+                        +card-slider({items: ['room8.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 444, price: 5000, rew: 15, stars: 4})
+                        +card-slider({items: ['room5.jpg', 'room6.jpg', 'room7.jpg', 'room8.jpg'], lycs: false, num: 352, price: 5000, rew: 55, stars: 3})
 
         include ../../components/footer/footer.pug
 

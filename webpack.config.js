@@ -155,7 +155,7 @@ const plugins = () => {
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin(
             [
-                { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
+                { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'docs') },
                 
             ]
         ),
@@ -182,7 +182,7 @@ module.exports = {
     },
     output: {
         filename: filename('js'),
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'docs')
     },
     resolve: {
         extensions: ['.js', '.json', '.png'],
@@ -214,7 +214,7 @@ module.exports = {
                 use: ['pug-loader']
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|ico)$/,
                 loader: 'file-loader?name=img/[name].[ext]'
                 
             },
